@@ -292,6 +292,35 @@ class PDFExtractorGUI:
                 if page_text:
                     text += page_text + '\n'
         return text
+    
+
+    def reset_form(self):
+        # """Limpia todos los campos para un nuevo proceso"""
+        # Limpiar entrada
+        self.ficha_var.set("")
+        
+        # Limpiar carpeta seleccionada
+        self.folder_path = ""
+        self.folder_label.config(text="Ninguna carpeta seleccionada", foreground='gray')
+        
+        # Limpiar datos extraídos
+        self.extracted_data = []
+        
+        # Limpiar tabla
+        for item in self.tree.get_children():
+            self.tree.delete(item)
+        
+        # Resetear barra de progreso
+        self.progress_var.set(0)
+        
+        # Limpiar estado y estadísticas
+        self.status_label.config(text="Listo para procesar")
+        self.stats_label.config(text="")
+        
+        # Desactivar botones de vista previa y exportación
+        self.preview_button.config(state='disabled')
+        self.export_button.config(state='disabled')
+
         
     def extract_document_data(self, text: str, filename: str) -> Optional[DocumentoData]:
         """Extrae los datos del documento desde el texto"""
@@ -492,6 +521,9 @@ class PDFExtractorGUI:
 
             logger.info(f"Datos exportados exitosamente a: {file_path}")
             messagebox.showinfo("Éxito", f"Datos exportados exitosamente a:\n{file_path}")
+
+            self.reset_form()
+            
 
         except Exception as e:
             logger.error(f"Error exportando a Excel: {e}")
