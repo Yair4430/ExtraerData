@@ -1,5 +1,5 @@
 """
-Extractor de Datos de PDFs de Cédulas - Versión Mejorada
+Extractor de Datos de PDFs de Cédulas - Versión Mejorada con Soporte para Archivos Comprimidos
 Extrae información de cédulas de ciudadanía desde archivos PDF y genera reportes en Excel
 """
 
@@ -16,6 +16,17 @@ from tkinter import ttk, filedialog, messagebox
 import threading
 import json
 from dataclasses import dataclass, asdict
+import zipfile
+import tempfile
+import shutil
+
+# Try to import rarfile (optional dependency)
+try:
+    import rarfile
+    RARFILE_AVAILABLE = True
+except ImportError:
+    RARFILE_AVAILABLE = False
+    logging.warning("rarfile no está disponible. Solo se soportarán archivos ZIP.")
 
 # Configuración de logging
 logging.basicConfig(
@@ -55,7 +66,7 @@ class PDFExtractorGUI:
     
     def __init__(self):
         self.root = tk.Tk()
-        self.root.title("Extractor de Datos de Cédulas - v2.0")
+        self.root.title("Extractor de Datos de Cédulas - v2.1 (Con Soporte Comprimidos)")
         self.root.geometry("800x600")
         self.root.resizable(True, True)
         
@@ -64,6 +75,8 @@ class PDFExtractorGUI:
         self.folder_path = ""
         self.extracted_data: List[DocumentoData] = []
         self.processing = False
+        self.is_compressed_file = False
+        self.temp_dir = None
         
         # Configurar estilo
         self.setup_styles()
@@ -116,11 +129,15 @@ class PDFExtractorGUI:
         
         # Botón seleccionar carpeta
         self.folder_button = ttk.Button(config_frame, text="Seleccionar Carpeta", command=self.select_folder)
-        self.folder_button.grid(row=0, column=2)
+        self.folder_button.grid(row=0, column=2, padx=(0, 5))
         
-        # Label para mostrar carpeta seleccionada
-        self.folder_label = ttk.Label(config_frame, text="Ninguna carpeta seleccionada", foreground='gray')
-        self.folder_label.grid(row=1, column=0, columnspan=3, sticky=tk.W, pady=(5, 0))
+        # Botón seleccionar archivo comprimido
+        self.compressed_button = ttk.Button(config_frame, text="Archivo Comprimido", command=self.select_compressed_file)
+        self.compressed_button.grid(row=0, column=3)
+        
+        # Label para mostrar carpeta o archivo seleccionado
+        self.folder_label = ttk.Label(config_frame, text="Ninguna carpeta o archivo seleccionado", foreground='gray')
+        self.folder_label.grid(row=1, column=0, columnspan=4, sticky=tk.W, pady=(5, 0))
         
         # Sección de procesamiento
         process_frame = ttk.LabelFrame(main_frame, text="Procesamiento", padding="10")
@@ -192,8 +209,78 @@ class PDFExtractorGUI:
         folder = filedialog.askdirectory(title="Seleccione la carpeta que contiene los PDFs")
         if folder:
             self.folder_path = folder
+            self.is_compressed_file = False
             self.folder_label.config(text=f"Carpeta: {folder}", foreground='black')
             logger.info(f"Carpeta seleccionada: {folder}")
+            
+    def select_compressed_file(self):
+        """Selecciona un archivo comprimido que contiene los PDFs"""
+        filetypes = [
+            ("Archivos comprimidos", "*.zip"),
+            ("Archivos ZIP", "*.zip"),
+        ]
+        
+        if RARFILE_AVAILABLE:
+            filetypes.insert(1, ("Archivos RAR", "*.rar"))
+            filetypes[0] = ("Archivos comprimidos", "*.zip;*.rar")
+        
+        file_path = filedialog.askopenfilename(
+            title="Seleccione el archivo comprimido que contiene los PDFs",
+            filetypes=filetypes
+        )
+        
+        if file_path:
+            self.folder_path = file_path
+            self.is_compressed_file = True
+            filename = os.path.basename(file_path)
+            self.folder_label.config(text=f"Archivo comprimido: {filename}", foreground='black')
+            logger.info(f"Archivo comprimido seleccionado: {file_path}")
+
+    def extract_compressed_file(self, file_path: str) -> str:
+        """Extrae un archivo comprimido a una carpeta temporal"""
+        try:
+            # Crear directorio temporal
+            self.temp_dir = tempfile.mkdtemp(prefix="pdf_extractor_")
+            
+            file_extension = os.path.splitext(file_path)[1].lower()
+            
+            if file_extension == '.zip':
+                with zipfile.ZipFile(file_path, 'r') as zip_ref:
+                    # Extraer solo archivos PDF
+                    pdf_files = [f for f in zip_ref.namelist() if f.lower().endswith('.pdf')]
+                    for pdf_file in pdf_files:
+                        zip_ref.extract(pdf_file, self.temp_dir)
+                    logger.info(f"Extraídos {len(pdf_files)} archivos PDF del ZIP")
+                    
+            elif file_extension == '.rar' and RARFILE_AVAILABLE:
+                with rarfile.RarFile(file_path, 'r') as rar_ref:
+                    # Extraer solo archivos PDF
+                    pdf_files = [f for f in rar_ref.namelist() if f.lower().endswith('.pdf')]
+                    for pdf_file in pdf_files:
+                        rar_ref.extract(pdf_file, self.temp_dir)
+                    logger.info(f"Extraídos {len(pdf_files)} archivos PDF del RAR")
+                    
+            else:
+                raise ValueError(f"Formato de archivo no soportado: {file_extension}")
+                
+            return self.temp_dir
+            
+        except Exception as e:
+            logger.error(f"Error extrayendo archivo comprimido: {e}")
+            if self.temp_dir and os.path.exists(self.temp_dir):
+                shutil.rmtree(self.temp_dir)
+                self.temp_dir = None
+            raise
+
+    def cleanup_temp_files(self):
+        """Limpia los archivos temporales"""
+        if self.temp_dir and os.path.exists(self.temp_dir):
+            try:
+                shutil.rmtree(self.temp_dir)
+                self.temp_dir = None
+                logger.info("Archivos temporales limpiados")
+            except Exception as e:
+                logger.error(f"Error limpiando archivos temporales: {e}")
             
     def start_processing(self):
         """Inicia el procesamiento de PDFs en un hilo separado"""
@@ -215,59 +302,65 @@ class PDFExtractorGUI:
             return False
             
         if not self.folder_path:
-            messagebox.showerror("Error", "Debe seleccionar una carpeta.")
+            messagebox.showerror("Error", "Debe seleccionar una carpeta o archivo comprimido.")
             return False
             
-        if not os.path.exists(self.folder_path):
-            messagebox.showerror("Error", "La carpeta seleccionada no existe.")
-            return False
+        if self.is_compressed_file:
+            if not os.path.exists(self.folder_path):
+                messagebox.showerror("Error", "El archivo comprimido seleccionado no existe.")
+                return False
+        else:
+            if not os.path.isdir(self.folder_path):
+                messagebox.showerror("Error", "La carpeta seleccionada no existe.")
+                return False
             
         return True
         
-    def update_ui_state(self, enabled: bool):
-        """Actualiza el estado de los elementos de la UI"""
-        state = 'normal' if enabled else 'disabled'
-        self.process_button.config(state=state)
-        self.folder_button.config(state=state)
-        
-        if enabled and self.extracted_data:
-            self.preview_button.config(state='normal')
-            self.export_button.config(state='normal')
-        else:
-            self.preview_button.config(state='disabled')
-            self.export_button.config(state='disabled')
-            
     def process_pdfs(self):
-        """Procesa todos los PDFs en la carpeta seleccionada"""
+        """Procesa todos los PDFs en la carpeta seleccionada o archivo comprimido"""
         try:
             self.root.after(0, lambda: self.status_label.config(text="Procesando PDFs..."))
             
-            pdf_files = [f for f in os.listdir(self.folder_path) if f.lower().endswith('.pdf')]
+            # Determinar la carpeta de trabajo
+            work_folder = self.folder_path
+            
+            # Si es un archivo comprimido, extraerlo primero
+            if self.is_compressed_file:
+                self.root.after(0, lambda: self.status_label.config(text="Extrayendo archivo comprimido..."))
+                work_folder = self.extract_compressed_file(self.folder_path)
+            
+            # Buscar archivos PDF recursivamente si es necesario
+            pdf_files = []
+            for root, dirs, files in os.walk(work_folder):
+                for file in files:
+                    if file.lower().endswith('.pdf'):
+                        pdf_files.append(os.path.join(root, file))
+            
             total_files = len(pdf_files)
             
             if total_files == 0:
-                self.root.after(0, lambda: messagebox.showwarning("Aviso", "No se encontraron archivos PDF en la carpeta seleccionada."))
+                self.root.after(0, lambda: messagebox.showwarning("Aviso", "No se encontraron archivos PDF en la ubicación seleccionada."))
                 return
                 
             self.extracted_data = []
             
-            for idx, pdf_file in enumerate(pdf_files, 1):
-                pdf_path = os.path.join(self.folder_path, pdf_file)
+            for idx, pdf_path in enumerate(pdf_files, 1):
+                pdf_filename = os.path.basename(pdf_path)
                 
                 try:
-                    self.root.after(0, lambda f=pdf_file: self.status_label.config(text=f"Procesando: {f}"))
+                    self.root.after(0, lambda f=pdf_filename: self.status_label.config(text=f"Procesando: {f}"))
                     
                     text = self.extract_text_from_pdf(pdf_path)
-                    document_data = self.extract_document_data(text, pdf_file)
+                    document_data = self.extract_document_data(text, pdf_filename)
                     
                     if document_data:
                         self.extracted_data.append(document_data)
-                        logger.info(f"Procesado exitosamente: {pdf_file}")
+                        logger.info(f"Procesado exitosamente: {pdf_filename}")
                     else:
-                        logger.warning(f"No se encontraron datos válidos en: {pdf_file}")
+                        logger.warning(f"No se encontraron datos válidos en: {pdf_filename}")
                         
                 except Exception as e:
-                    logger.error(f"Error procesando {pdf_file}: {e}")
+                    logger.error(f"Error procesando {pdf_filename}: {e}")
                     
                 # Actualizar barra de progreso
                 progress = (idx / total_files) * 100
@@ -280,6 +373,8 @@ class PDFExtractorGUI:
             logger.error(f"Error durante el procesamiento: {e}")
             self.root.after(0, lambda: messagebox.showerror("Error", f"Error durante el procesamiento: {e}"))
         finally:
+            if self.is_compressed_file:
+                self.cleanup_temp_files()
             self.processing = False
             self.root.after(0, lambda: self.update_ui_state(True))
             
@@ -292,16 +387,20 @@ class PDFExtractorGUI:
                 if page_text:
                     text += page_text + '\n'
         return text
-    
+        
 
     def reset_form(self):
-        # """Limpia todos los campos para un nuevo proceso"""
+        """Limpia todos los campos para un nuevo proceso"""
+        if self.is_compressed_file:
+            self.cleanup_temp_files()
+            
         # Limpiar entrada
         self.ficha_var.set("")
         
         # Limpiar carpeta seleccionada
         self.folder_path = ""
-        self.folder_label.config(text="Ninguna carpeta seleccionada", foreground='gray')
+        self.is_compressed_file = False
+        self.folder_label.config(text="Ninguna carpeta o archivo seleccionado", foreground='gray')
         
         # Limpiar datos extraídos
         self.extracted_data = []
@@ -397,12 +496,7 @@ class PDFExtractorGUI:
             else:
                 tags = ['vencido']
                 
-            self.tree.insert('', 'end', values=(
-                data.numero_documento,
-                data.estado,
-                data.dias_restantes,
-                data.archivo_origen
-            ), tags=tags)
+            self.tree.insert('', 'end', values=(data.numero_documento, data.estado, data.dias_restantes, data.archivo_origen), tags=tags)
             
         # Configurar colores de las filas
         self.tree.tag_configure('vigente', foreground='#27ae60')
@@ -467,15 +561,7 @@ class PDFExtractorGUI:
         # Agregar datos
         for data in self.extracted_data:
             fecha_exp = f"{data.dia}/{MESES.get(data.mes, 1)}/{data.año}"
-            tree.insert('', 'end', values=(
-                data.tipo_documento,
-                data.numero_documento,
-                data.nombres_apellidos,
-                fecha_exp,
-                data.estado,
-                data.dias_restantes,
-                data.archivo_origen
-            ))
+            tree.insert('', 'end', values=(data.tipo_documento, data.numero_documento, data.nombres_apellidos, fecha_exp, data.estado, data.dias_restantes, data.archivo_origen))
             
         # Posicionar elementos
         tree.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
@@ -486,7 +572,7 @@ class PDFExtractorGUI:
         main_frame.rowconfigure(0, weight=1)
         
     def export_to_excel(self):
-    # """Exporta los datos a un archivo Excel (sin campos de vigencia ni archivo de origen)"""
+        """Exporta los datos a un archivo Excel (sin campos de vigencia ni archivo de origen)"""
         if not self.extracted_data:
             messagebox.showwarning("Aviso", "No hay datos para exportar.")
             return
@@ -510,7 +596,6 @@ class PDFExtractorGUI:
 
             # Guardar automáticamente en Descargas
             ficha = self.ficha_var.get().strip()
-            # timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
             filename = f'plantilla_{ficha}.xlsx'
             downloads_path = str(Path.home() / "Downloads")
             file_path = os.path.join(downloads_path, filename)
@@ -525,10 +610,25 @@ class PDFExtractorGUI:
             self.reset_form()
             
 
+
         except Exception as e:
             logger.error(f"Error exportando a Excel: {e}")
             messagebox.showerror("Error", f"Error exportando a Excel: {e}")
 
+            
+    def update_ui_state(self, enabled: bool):
+        """Actualiza el estado de los elementos de la UI"""
+        state = 'normal' if enabled else 'disabled'
+        self.process_button.config(state=state)
+        self.folder_button.config(state=state)
+        self.compressed_button.config(state=state)
+        
+        if enabled and self.extracted_data:
+            self.preview_button.config(state='normal')
+            self.export_button.config(state='normal')
+        else:
+            self.preview_button.config(state='disabled')
+            self.export_button.config(state='disabled')
             
     def run(self):
         """Ejecuta la aplicación"""
