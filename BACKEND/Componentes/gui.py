@@ -1,65 +1,14 @@
-"""
-Extractor de Datos de PDFs de Cédulas - Versión Mejorada con Soporte para Archivos Comprimidos
-Extrae información de cédulas de ciudadanía desde archivos PDF y genera reportes en Excel
-"""
-
-import os
-import re
-import logging
-import pdfplumber
-import pandas as pd
-from pathlib import Path
-from datetime import datetime, timedelta
-from typing import Dict, List, Tuple, Optional
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
+from typing import List  # Importar List desde typing
 import threading
-import json
-from dataclasses import dataclass, asdict
-import zipfile
-import tempfile
-import shutil
-
-# Try to import rarfile (optional dependency)
-try:
-    import rarfile
-    RARFILE_AVAILABLE = True
-except ImportError:
-    RARFILE_AVAILABLE = False
-    logging.warning("rarfile no está disponible. Solo se soportarán archivos ZIP.")
-
-# Configuración de logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('pdf_extractor.log'),
-        logging.StreamHandler()
-    ]
-)
-logger = logging.getLogger(__name__)
-
-# Constantes
-MESES = {
-    'Enero': 1, 'Febrero': 2, 'Marzo': 3, 'Abril': 4, 'Mayo': 5, 'Junio': 6,
-    'Julio': 7, 'Agosto': 8, 'Septiembre': 9, 'Octubre': 10, 'Noviembre': 11, 'Diciembre': 12
-}
-
-DIAS_ALERTA_VENCIMIENTO = 30  # Días antes del vencimiento para alertar
-
-@dataclass
-class DocumentoData:
-    """Clase para representar los datos de un documento"""
-    tipo_documento: str
-    numero_documento: str
-    nombres_apellidos: str
-    dia: str
-    mes: str
-    año: str
-    fecha_vigencia: datetime
-    dias_restantes: int
-    estado: str
-    archivo_origen: str
+import pandas as pd
+from pathlib import Path
+import os
+from .constants import logger
+from .data_models import DocumentoData
+from .document_extractor import DocumentExtractor
+from .file_processor import FileProcessor
 
 class PDFExtractorGUI:
     """Interfaz gráfica principal para el extractor de PDFs"""
@@ -73,10 +22,13 @@ class PDFExtractorGUI:
         # Variables
         self.ficha_var = tk.StringVar()
         self.folder_path = ""
-        self.extracted_data: List[DocumentoData] = []
+        self.extracted_data: List[DocumentoData] = []  # Usar List en lugar de _List
         self.processing = False
         self.is_compressed_file = False
-        self.temp_dir = None
+        
+        # Componentes
+        self.extractor = DocumentExtractor()
+        self.file_processor = FileProcessor()
         
         # Configurar estilo
         self.setup_styles()
@@ -215,6 +167,8 @@ class PDFExtractorGUI:
             
     def select_compressed_file(self):
         """Selecciona un archivo comprimido que contiene los PDFs"""
+        from .constants import RARFILE_AVAILABLE
+        
         filetypes = [
             ("Archivos comprimidos", "*.zip"),
             ("Archivos ZIP", "*.zip"),
@@ -236,52 +190,6 @@ class PDFExtractorGUI:
             self.folder_label.config(text=f"Archivo comprimido: {filename}", foreground='black')
             logger.info(f"Archivo comprimido seleccionado: {file_path}")
 
-    def extract_compressed_file(self, file_path: str) -> str:
-        """Extrae un archivo comprimido a una carpeta temporal"""
-        try:
-            # Crear directorio temporal
-            self.temp_dir = tempfile.mkdtemp(prefix="pdf_extractor_")
-            
-            file_extension = os.path.splitext(file_path)[1].lower()
-            
-            if file_extension == '.zip':
-                with zipfile.ZipFile(file_path, 'r') as zip_ref:
-                    # Extraer solo archivos PDF
-                    pdf_files = [f for f in zip_ref.namelist() if f.lower().endswith('.pdf')]
-                    for pdf_file in pdf_files:
-                        zip_ref.extract(pdf_file, self.temp_dir)
-                    logger.info(f"Extraídos {len(pdf_files)} archivos PDF del ZIP")
-                    
-            elif file_extension == '.rar' and RARFILE_AVAILABLE:
-                with rarfile.RarFile(file_path, 'r') as rar_ref:
-                    # Extraer solo archivos PDF
-                    pdf_files = [f for f in rar_ref.namelist() if f.lower().endswith('.pdf')]
-                    for pdf_file in pdf_files:
-                        rar_ref.extract(pdf_file, self.temp_dir)
-                    logger.info(f"Extraídos {len(pdf_files)} archivos PDF del RAR")
-                    
-            else:
-                raise ValueError(f"Formato de archivo no soportado: {file_extension}")
-                
-            return self.temp_dir
-            
-        except Exception as e:
-            logger.error(f"Error extrayendo archivo comprimido: {e}")
-            if self.temp_dir and os.path.exists(self.temp_dir):
-                shutil.rmtree(self.temp_dir)
-                self.temp_dir = None
-            raise
-
-    def cleanup_temp_files(self):
-        """Limpia los archivos temporales"""
-        if self.temp_dir and os.path.exists(self.temp_dir):
-            try:
-                shutil.rmtree(self.temp_dir)
-                self.temp_dir = None
-                logger.info("Archivos temporales limpiados")
-            except Exception as e:
-                logger.error(f"Error limpiando archivos temporales: {e}")
-            
     def start_processing(self):
         """Inicia el procesamiento de PDFs en un hilo separado"""
         if not self.validate_inputs():
@@ -327,14 +235,10 @@ class PDFExtractorGUI:
             # Si es un archivo comprimido, extraerlo primero
             if self.is_compressed_file:
                 self.root.after(0, lambda: self.status_label.config(text="Extrayendo archivo comprimido..."))
-                work_folder = self.extract_compressed_file(self.folder_path)
+                work_folder = self.file_processor.extract_compressed_file(self.folder_path)
             
-            # Buscar archivos PDF recursivamente si es necesario
-            pdf_files = []
-            for root, dirs, files in os.walk(work_folder):
-                for file in files:
-                    if file.lower().endswith('.pdf'):
-                        pdf_files.append(os.path.join(root, file))
+            # Buscar archivos PDF
+            pdf_files = self.file_processor.find_pdf_files(work_folder)
             
             total_files = len(pdf_files)
             
@@ -350,8 +254,8 @@ class PDFExtractorGUI:
                 try:
                     self.root.after(0, lambda f=pdf_filename: self.status_label.config(text=f"Procesando: {f}"))
                     
-                    text = self.extract_text_from_pdf(pdf_path)
-                    document_data = self.extract_document_data(text, pdf_filename)
+                    text = self.extractor.extract_text_from_pdf(pdf_path)
+                    document_data = self.extractor.extract_document_data(text, pdf_filename)
                     
                     if document_data:
                         self.extracted_data.append(document_data)
@@ -374,25 +278,14 @@ class PDFExtractorGUI:
             self.root.after(0, lambda: messagebox.showerror("Error", f"Error durante el procesamiento: {e}"))
         finally:
             if self.is_compressed_file:
-                self.cleanup_temp_files()
+                self.file_processor.cleanup_temp_files()
             self.processing = False
             self.root.after(0, lambda: self.update_ui_state(True))
             
-    def extract_text_from_pdf(self, pdf_path: str) -> str:
-        """Extrae texto de un archivo PDF"""
-        text = ''
-        with pdfplumber.open(pdf_path) as pdf:
-            for page in pdf.pages:
-                page_text = page.extract_text()
-                if page_text:
-                    text += page_text + '\n'
-        return text
-        
-
     def reset_form(self):
         """Limpia todos los campos para un nuevo proceso"""
         if self.is_compressed_file:
-            self.cleanup_temp_files()
+            self.file_processor.cleanup_temp_files()
             
         # Limpiar entrada
         self.ficha_var.set("")
@@ -420,65 +313,6 @@ class PDFExtractorGUI:
         self.preview_button.config(state='disabled')
         self.export_button.config(state='disabled')
 
-        
-    def extract_document_data(self, text: str, filename: str) -> Optional[DocumentoData]:
-        """Extrae los datos del documento desde el texto"""
-        try:
-            # Patrones de búsqueda mejorados
-            cedula_match = re.search(r'C[eé]dula de Ciudadan[ií]a:\s*([\d\.]+)', text)
-            fecha_match = re.search(r'Fecha de Expedici[oó]n:\s*(\d{1,2})\s+DE\s+([A-Z]+)\s+DE\s+(\d{4})', text, re.IGNORECASE)
-            vigencia_match = re.search(r'válida en todo el territorio nacional hasta el (\d{1,2}) de ([A-Za-z]+) de (\d{4})', text, re.IGNORECASE)
-            
-            # Intentar extraer nombres (patrón común en cédulas)
-            nombres_match = re.search(r'Nombres:\s*([A-ZÁÉÍÓÚÑ\s]+)', text) or re.search(r'NOMBRES:\s*([A-ZÁÉÍÓÚÑ\s]+)', text)
-            apellidos_match = re.search(r'Apellidos:\s*([A-ZÁÉÍÓÚÑ\s]+)', text) or re.search(r'APELLIDOS:\s*([A-ZÁÉÍÓÚÑ\s]+)', text)
-            
-            if not cedula_match or not fecha_match or not vigencia_match:
-                return None
-                
-            cedula = cedula_match.group(1).replace('.', '')
-            dia, mes, anio = fecha_match.group(1), fecha_match.group(2).capitalize(), fecha_match.group(3)
-            
-            # Construir nombre completo
-            nombres_apellidos = "N/A"
-            if nombres_match and apellidos_match:
-                nombres = nombres_match.group(1).strip()
-                apellidos = apellidos_match.group(1).strip()
-                nombres_apellidos = f"{nombres} {apellidos}"
-            elif nombres_match:
-                nombres_apellidos = nombres_match.group(1).strip()
-                
-            # Fecha de vigencia
-            dia_v, mes_v, anio_v = vigencia_match.group(1), vigencia_match.group(2).capitalize(), vigencia_match.group(3)
-            fecha_vigencia = datetime(int(anio_v), MESES.get(mes_v, 1), int(dia_v))
-            
-            # Calcular días restantes y estado
-            dias_restantes = (fecha_vigencia - datetime.now()).days
-            
-            if dias_restantes < 0:
-                estado = 'VENCIDO'
-            elif dias_restantes <= DIAS_ALERTA_VENCIMIENTO:
-                estado = 'POR VENCER'
-            else:
-                estado = 'VIGENTE'
-                
-            return DocumentoData(
-                tipo_documento='CC',
-                numero_documento=cedula,
-                nombres_apellidos=nombres_apellidos,
-                dia=dia,
-                mes=mes,
-                año=anio,
-                fecha_vigencia=fecha_vigencia,
-                dias_restantes=dias_restantes,
-                estado=estado,
-                archivo_origen=filename
-            )
-            
-        except Exception as e:
-            logger.error(f"Error extrayendo datos del documento: {e}")
-            return None
-            
     def update_results(self):
         """Actualiza la vista de resultados"""
         # Limpiar treeview
@@ -532,6 +366,8 @@ class PDFExtractorGUI:
         
     def show_preview(self):
         """Muestra una ventana de vista previa de los datos"""
+        from .constants import MESES
+        
         if not self.extracted_data:
             messagebox.showwarning("Aviso", "No hay datos para mostrar.")
             return
@@ -608,8 +444,6 @@ class PDFExtractorGUI:
             messagebox.showinfo("Éxito", f"Datos exportados exitosamente a:\n{file_path}")
 
             self.reset_form()
-            
-
 
         except Exception as e:
             logger.error(f"Error exportando a Excel: {e}")
@@ -633,15 +467,3 @@ class PDFExtractorGUI:
     def run(self):
         """Ejecuta la aplicación"""
         self.root.mainloop()
-
-def main():
-    """Función principal"""
-    try:
-        app = PDFExtractorGUI()
-        app.run()
-    except Exception as e:
-        logger.error(f"Error iniciando la aplicación: {e}")
-        messagebox.showerror("Error Fatal", f"Error iniciando la aplicación: {e}")
-
-if __name__ == "__main__":
-    main()
