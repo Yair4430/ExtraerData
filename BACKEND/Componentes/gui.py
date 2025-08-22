@@ -445,23 +445,7 @@ class PDFExtractorGUI:
                 file_path = self.excel_exporter.export_to_excel(self.extracted_data, ficha)
                 
                 messagebox.showinfo("Éxito", f"Datos exportados exitosamente a:\n{file_path}")
-                
-                # Preguntar si desea abrir el archivo
-                if messagebox.askyesno("Abrir archivo", "¿Desea abrir el archivo Excel ahora?"):
-                    try:
-                        os.startfile(file_path)  # Para Windows
-                    except:
-                        try:
-                            import subprocess
-                            subprocess.run(['open', file_path])  # Para macOS
-                        except:
-                            try:
-                                subprocess.run(['xdg-open', file_path])  # Para Linux
-                            except:
-                                messagebox.showinfo("Información", f"El archivo se guardó en: {file_path}")
-                
-                # No resetear el formulario automáticamente después de exportar
-                # self.reset_form()
+                self.reset_form()
 
             except Exception as e:
                 logger.error(f"Error exportando a Excel: {e}")
