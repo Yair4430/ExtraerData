@@ -160,7 +160,13 @@ class PDFExtractorGUI:
         
     def select_folder(self):
         """Selecciona la carpeta que contiene los PDFs"""
-        folder = filedialog.askdirectory(title="Seleccione la carpeta que contiene los PDFs")
+        # Abrir directamente en la carpeta de Descargas
+        initial_dir = str(Path.home() / "Downloads")
+        
+        folder = filedialog.askdirectory(
+            title="Seleccione la carpeta que contiene los PDFs",
+            initialdir=initial_dir
+        )
         if folder:
             self.folder_path = folder
             self.is_compressed_file = False
@@ -171,18 +177,18 @@ class PDFExtractorGUI:
         """Selecciona un archivo comprimido que contiene los PDFs"""
         from .constants import RARFILE_AVAILABLE
         
-        filetypes = [
-            ("Archivos comprimidos", "*.zip"),
-            ("Archivos ZIP", "*.zip"),
-        ]
+        # Abrir directamente en la carpeta de Descargas
+        initial_dir = str(Path.home() / "Downloads")
         
-        if RARFILE_AVAILABLE:
-            filetypes.insert(1, ("Archivos RAR", "*.rar"))
-            filetypes[0] = ("Archivos comprimidos", "*.zip;*.rar")
+        # Definir tipos de archivo - SOLO ZIP
+        filetypes = [
+            ("Archivos ZIP", "*.zip"),  # Solo mostrar archivos ZIP
+        ]
         
         file_path = filedialog.askopenfilename(
             title="Seleccione el archivo comprimido que contiene los PDFs",
-            filetypes=filetypes
+            filetypes=filetypes,
+            initialdir=initial_dir  # Abrir en Descargas
         )
         
         if file_path:
