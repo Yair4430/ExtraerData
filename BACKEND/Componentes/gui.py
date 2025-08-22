@@ -405,7 +405,19 @@ class PDFExtractorGUI:
         # Agregar datos
         for data in self.extracted_data:
             fecha_exp = f"{data.dia}/{MESES.get(data.mes, 1)}/{data.año}"
-            tree.insert('', 'end', values=(data.tipo_documento, data.numero_documento, data.nombres_apellidos, fecha_exp, data.estado, data.dias_restantes, data.archivo_origen))
+            
+            # Mostrar "N/A" para días restantes en documentos TI - CAMBIO AQUÍ
+            dias_restantes_str = "N/A" if data.tipo_documento == 'TI' else str(data.dias_restantes)
+            
+            tree.insert('', 'end', values=(
+                data.tipo_documento, 
+                data.numero_documento, 
+                data.nombres_apellidos, 
+                fecha_exp, 
+                data.estado, 
+                dias_restantes_str,  # Usar el string con "N/A" para TI
+                data.archivo_origen
+            ))
             
         # Posicionar elementos
         tree.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
