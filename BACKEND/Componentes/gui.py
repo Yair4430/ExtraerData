@@ -406,8 +406,11 @@ class PDFExtractorGUI:
         for data in self.extracted_data:
             fecha_exp = f"{data.dia}/{MESES.get(data.mes, 1)}/{data.año}"
             
-            # Mostrar "N/A" para días restantes en documentos TI - CAMBIO AQUÍ
-            dias_restantes_str = "N/A" if data.tipo_documento == 'TI' else str(data.dias_restantes)
+            # Mostrar "N/A" para días restantes en documentos TI
+            if data.tipo_documento == 'TI':
+                dias_restantes_str = "N/A"
+            else:
+                dias_restantes_str = str(data.dias_restantes)
             
             tree.insert('', 'end', values=(
                 data.tipo_documento, 
@@ -415,7 +418,7 @@ class PDFExtractorGUI:
                 data.nombres_apellidos, 
                 fecha_exp, 
                 data.estado, 
-                dias_restantes_str,  # Usar el string con "N/A" para TI
+                dias_restantes_str,
                 data.archivo_origen
             ))
             
@@ -426,7 +429,7 @@ class PDFExtractorGUI:
         
         main_frame.columnconfigure(0, weight=1)
         main_frame.rowconfigure(0, weight=1)
-        
+            
     def export_to_excel(self):
             """Exporta los datos a un archivo Excel usando el componente ExcelExporter"""
             if not self.extracted_data:

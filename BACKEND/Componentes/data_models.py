@@ -13,6 +13,5 @@ class DocumentoData:
     año: str
     fecha_vigencia: datetime
     dias_restantes: Union[int, str]  # Puede ser int o string "N/A"
-    dias_restantes: int
     estado: str
     archivo_origen: str
