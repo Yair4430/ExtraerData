@@ -9,6 +9,7 @@ from .constants import logger
 from .data_models import DocumentoData
 from .document_extractor import DocumentExtractor
 from .file_processor import FileProcessor
+from .excel_exporter import ExcelExporter  # Importar el nuevo componente
 
 class PDFExtractorGUI:
     """Interfaz gráfica principal para el extractor de PDFs"""
@@ -29,7 +30,8 @@ class PDFExtractorGUI:
         # Componentes
         self.extractor = DocumentExtractor()
         self.file_processor = FileProcessor()
-        
+        self.excel_exporter = ExcelExporter()  
+
         # Configurar estilo
         self.setup_styles()
         self.create_widgets()
@@ -408,48 +410,42 @@ class PDFExtractorGUI:
         main_frame.rowconfigure(0, weight=1)
         
     def export_to_excel(self):
-        """Exporta los datos a un archivo Excel (sin campos de vigencia ni archivo de origen)"""
-        if not self.extracted_data:
-            messagebox.showwarning("Aviso", "No hay datos para exportar.")
-            return
+            """Exporta los datos a un archivo Excel usando el componente ExcelExporter"""
+            if not self.extracted_data:
+                messagebox.showwarning("Aviso", "No hay datos para exportar.")
+                return
 
-        try:
-            # Preparar datos para DataFrame (solo los campos necesarios)
-            data_for_df = []
-            for data in self.extracted_data:
-                data_dict = {
-                    'TIPO DE DOCUMENTO': data.tipo_documento,
-                    'NUMERO DE DOCUMENTO': data.numero_documento,
-                    'NOMBRES Y APELLIDOS': data.nombres_apellidos,
-                    'DIA': data.dia,
-                    'MES': data.mes,
-                    'AÑO': data.año,
-                }
-                data_for_df.append(data_dict)
+            try:
+                ficha = self.ficha_var.get().strip()
+                if not ficha:
+                    messagebox.showerror("Error", "Debe ingresar un número de ficha para exportar.")
+                    return
+                    
+                file_path = self.excel_exporter.export_to_excel(self.extracted_data, ficha)
+                
+                messagebox.showinfo("Éxito", f"Datos exportados exitosamente a:\n{file_path}")
+                
+                # Preguntar si desea abrir el archivo
+                if messagebox.askyesno("Abrir archivo", "¿Desea abrir el archivo Excel ahora?"):
+                    try:
+                        os.startfile(file_path)  # Para Windows
+                    except:
+                        try:
+                            import subprocess
+                            subprocess.run(['open', file_path])  # Para macOS
+                        except:
+                            try:
+                                subprocess.run(['xdg-open', file_path])  # Para Linux
+                            except:
+                                messagebox.showinfo("Información", f"El archivo se guardó en: {file_path}")
+                
+                # No resetear el formulario automáticamente después de exportar
+                # self.reset_form()
 
-            # Crear DataFrame
-            df = pd.DataFrame(data_for_df)
-
-            # Guardar automáticamente en Descargas
-            ficha = self.ficha_var.get().strip()
-            filename = f'plantilla_{ficha}.xlsx'
-            downloads_path = str(Path.home() / "Downloads")
-            file_path = os.path.join(downloads_path, filename)
-
-            # Guardar Excel
-            with pd.ExcelWriter(file_path, engine='openpyxl') as writer:
-                df.to_excel(writer, sheet_name='Datos', index=False)
-
-            logger.info(f"Datos exportados exitosamente a: {file_path}")
-            messagebox.showinfo("Éxito", f"Datos exportados exitosamente a:\n{file_path}")
-
-            self.reset_form()
-
-        except Exception as e:
-            logger.error(f"Error exportando a Excel: {e}")
-            messagebox.showerror("Error", f"Error exportando a Excel: {e}")
-
-            
+            except Exception as e:
+                logger.error(f"Error exportando a Excel: {e}")
+                messagebox.showerror("Error", f"Error exportando a Excel: {e}")
+                
     def update_ui_state(self, enabled: bool):
         """Actualiza el estado de los elementos de la UI"""
         state = 'normal' if enabled else 'disabled'
@@ -463,7 +459,7 @@ class PDFExtractorGUI:
         else:
             self.preview_button.config(state='disabled')
             self.export_button.config(state='disabled')
-            
+        
     def run(self):
         """Ejecuta la aplicación"""
         self.root.mainloop()
