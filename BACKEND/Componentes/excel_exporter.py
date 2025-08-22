@@ -63,24 +63,17 @@ class ExcelExporter:
         ws = wb.active
 
         # Ajustar ancho de columnas
-        for column in ws.columns:
-            max_length = 0
-            column_letter = column[0].column_letter
-            column_name = column[0].value
-            
-            for cell in column:
-                try:
-                    max_length = max(max_length, len(str(cell.value) if cell.value else ""))
-                except:
-                    pass
-            
-            # Configurar ancho específico para nombres y apellidos
-            if column_name == "NOMBRES Y APELLIDOS":
-                adjusted_width = 40
-            else:
-                adjusted_width = max_length + 10
-            
-            ws.column_dimensions[column_letter].width = adjusted_width
+        column_widths = {
+            'A': 20,  # TIPO DE DOCUMENTO
+            'B': 20,  # NUMERO DE DOCUMENTO
+            'C': 40,  # NOMBRES Y APELLIDOS (más ancho para nombres completos)
+            'D': 10,  # DIA
+            'E': 15,  # MES
+            'F': 10   # AÑO
+        }
+        
+        for col_letter, width in column_widths.items():
+            ws.column_dimensions[col_letter].width = width
 
         # Formato de encabezados
         for cell in ws[1]:
