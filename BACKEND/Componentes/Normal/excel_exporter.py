@@ -155,3 +155,44 @@ class ExcelExporter:
         ws.add_data_validation(dv_año)
         
         wb.save(file_path)
+
+    def export_to_excel_massive(self, extracted_data: List[DocumentoData], folder_name: str, output_dir: Path) -> str:
+        """Exporta datos a Excel para el procesamiento masivo"""
+        if not extracted_data:
+            raise ValueError("No hay datos para exportar")
+
+        try:
+            # Preparar datos para DataFrame
+            data_for_df = []
+            for data in extracted_data:
+                data_dict = {
+                    'TIPO DE DOCUMENTO': data.tipo_documento,
+                    'NUMERO DE DOCUMENTO': data.numero_documento,
+                    'NOMBRES Y APELLIDOS': data.nombres_apellidos,
+                    'DIA': data.dia,
+                    'MES': data.mes.upper() if data.mes else '',
+                    'AÑO': data.año
+                }
+                data_for_df.append(data_dict)
+
+            # Crear DataFrame
+            df = pd.DataFrame(data_for_df)
+
+            # Guardar en la carpeta especificada
+            filename = f'resultados_{folder_name}.xlsx'
+            file_path = os.path.join(output_dir, filename)
+
+            # Guardar Excel inicial
+            with pd.ExcelWriter(file_path, engine='openpyxl') as writer:
+                df.to_excel(writer, sheet_name='Datos', index=False)
+
+            # Aplicar formato y validaciones
+            self.ajustar_formato_excel(file_path)
+            self.agregar_validaciones_excel(file_path)
+
+            logger.info(f"Datos exportados exitosamente a: {file_path}")
+            return file_path
+
+        except Exception as e:
+            logger.error(f"Error exportando a Excel: {e}")
+            raise
