@@ -179,7 +179,7 @@ class ExcelExporter:
             df = pd.DataFrame(data_for_df)
 
             # Guardar en la carpeta especificada
-            filename = f'resultados_{folder_name}.xlsx'
+            filename = f'plantilla_{folder_name}.xlsx'
             file_path = os.path.join(output_dir, filename)
 
             # Guardar Excel inicial
