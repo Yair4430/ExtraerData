@@ -139,8 +139,13 @@ class MassiveProcessor:
                 logger.warning(f"No se extrajeron datos válidos de: {item_name}")
                 return ""
             
-            # Exportar a Excel (usar el nombre del item como "ficha")
-            clean_item_name = self.clean_filename(item_name)
+            # Limpiar el nombre del item - REMOVER LA EXTENSIÓN .ZIP si existe
+            if is_zip and item_name.lower().endswith('.zip'):
+                clean_item_name = self.clean_filename(item_name[:-4])  # Quitar los últimos 4 caracteres (.zip)
+            else:
+                clean_item_name = self.clean_filename(item_name)
+            
+            # Exportar a Excel (usar el nombre limpio del item como "ficha")
             excel_path = self.excel_exporter.export_to_excel_massive(
                 extracted_data, clean_item_name, output_dir
             )
