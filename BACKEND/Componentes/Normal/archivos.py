@@ -4,7 +4,7 @@ import shutil
 import zipfile
 from pathlib import Path
 from typing import List
-from .constants import RARFILE_AVAILABLE, logger
+from .configuracion import RARFILE_AVAILABLE, logger
 
 class FileProcessor:
     """Clase para procesar archivos y carpetas"""

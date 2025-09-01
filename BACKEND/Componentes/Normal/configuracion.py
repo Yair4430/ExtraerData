@@ -1,15 +1,16 @@
 import logging
+import sys
 
 # Configuración de logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler('pdf_extractor.log'),
-        logging.StreamHandler()
+        logging.StreamHandler(sys.stdout)
     ]
 )
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('pdf_extractor')
 
 # Constantes
 MESES = {

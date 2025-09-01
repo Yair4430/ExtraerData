@@ -1,0 +1,228 @@
+2025-08-26 11:54:51,889 - pdf_extractor - ERROR - Error procesando PDF: [Errno 2] No such file or directory: '/tmp/3277059.zip'
+2025-08-26 11:58:59,146 - pdf_extractor - ERROR - Error procesando archivo comprimido: [Errno 2] No such file or directory: '/tmp/3280911.zip'
+2025-09-01 11:38:51,120 - root - INFO - Servidor de extracción de PDFs iniciado en http://127.0.0.1:5000
+2025-09-01 11:38:51,127 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-09-01 11:39:54,215 - root - INFO - Servidor de extracción de PDFs iniciado en http://127.0.0.1:5000
+2025-09-01 11:39:54,220 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-09-01 11:54:49,840 - root - INFO - Servidor de extracción de PDFs iniciado en http://127.0.0.1:5000
+2025-09-01 11:54:49,844 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-09-01 11:56:56,481 - root - INFO - Servidor de extracción de PDFs iniciado en http://127.0.0.1:5000
+2025-09-01 11:56:56,485 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-09-01 12:25:55,239 - root - INFO - Servidor de extracción de PDFs iniciado en http://127.0.0.1:5000
+2025-09-01 12:25:55,244 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-09-01 12:29:41,771 - root - INFO - Servidor de extracción de PDFs iniciado en http://127.0.0.1:5000
+2025-09-01 12:29:41,776 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-09-01 12:30:51,650 - root - INFO - Servidor de extracción de PDFs iniciado en http://127.0.0.1:5000
+2025-09-01 12:30:51,675 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-09-01 12:33:51,274 - root - INFO - Servidor de extracción de PDFs iniciado en http://127.0.0.1:5000
+2025-09-01 12:33:51,282 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-09-01 12:35:37,090 - root - INFO - Servidor de extracción de PDFs iniciado en http://127.0.0.1:5000
+2025-09-01 12:35:37,094 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-09-01 13:51:21,561 - root - INFO - Servidor de extracción de PDFs iniciado en http://127.0.0.1:5000
+2025-09-01 13:51:21,566 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-09-01 13:52:05,823 - pdf_extractor - ERROR - Error en procesamiento masivo: dictionary update sequence element #0 has length 1; 2 is required
+2025-09-01 13:52:05,823 - pdf_extractor - ERROR - Error en procesamiento masivo: dictionary update sequence element #0 has length 1; 2 is required
+2025-09-01 14:00:12,204 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 14:00:12,204 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-01 14:00:12,206 - werkzeug - INFO -  * Restarting with stat
+2025-09-01 14:00:12,994 - werkzeug - WARNING -  * Debugger is active!
+2025-09-01 14:00:13,000 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-01 14:04:10,888 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 14:04:10,888 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-01 14:04:10,890 - werkzeug - INFO -  * Restarting with stat
+2025-09-01 14:04:11,719 - werkzeug - WARNING -  * Debugger is active!
+2025-09-01 14:04:11,722 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-01 14:04:22,333 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:04:22] "[33mOPTIONS /procesar-masivo HTTP/1.1[0m" 404 -
+2025-09-01 14:05:02,798 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:05:02] "[33mOPTIONS /procesar-masivo HTTP/1.1[0m" 404 -
+2025-09-01 14:08:14,341 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 14:08:14,341 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-01 14:08:14,342 - werkzeug - INFO -  * Restarting with stat
+2025-09-01 14:08:15,268 - werkzeug - WARNING -  * Debugger is active!
+2025-09-01 14:08:15,271 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-01 14:08:27,283 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:08:27] "[33mOPTIONS /procesar-masivo HTTP/1.1[0m" 404 -
+2025-09-01 14:10:11,482 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:10:11] "OPTIONS /procesar HTTP/1.1" 200 -
+2025-09-01 14:10:50,433 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 14:10:50,433 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-01 14:10:50,435 - werkzeug - INFO -  * Restarting with stat
+2025-09-01 14:10:51,375 - werkzeug - WARNING -  * Debugger is active!
+2025-09-01 14:10:51,378 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-01 14:11:03,298 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:11:03] "OPTIONS /procesar HTTP/1.1" 200 -
+2025-09-01 14:13:54,412 - werkzeug - INFO -  * Detected change in 'C:\\Users\\yacardenas\\Documents\\PROYECTOS\\ExtraerData\\BACKEND\\app.py', reloading
+2025-09-01 14:13:54,510 - werkzeug - INFO -  * Restarting with stat
+2025-09-01 14:13:55,475 - werkzeug - WARNING -  * Debugger is active!
+2025-09-01 14:13:55,478 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-01 14:14:35,019 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 14:14:35,019 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-01 14:14:35,021 - werkzeug - INFO -  * Restarting with stat
+2025-09-01 14:14:35,851 - werkzeug - WARNING -  * Debugger is active!
+2025-09-01 14:14:35,854 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-01 14:14:52,618 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:14:52] "OPTIONS /procesar HTTP/1.1" 200 -
+2025-09-01 14:14:53,169 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\plantilla_123243.xlsx
+2025-09-01 14:14:53,170 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:14:53] "POST /procesar HTTP/1.1" 200 -
+2025-09-01 14:15:28,922 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:15:28] "[33mGET /progreso HTTP/1.1[0m" 404 -
+2025-09-01 14:15:29,583 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:15:29] "[33mGET /progreso HTTP/1.1[0m" 404 -
+2025-09-01 14:15:30,898 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:15:30] "[33mGET /progreso HTTP/1.1[0m" 404 -
+2025-09-01 14:15:31,592 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:15:31] "[33mGET /progreso HTTP/1.1[0m" 404 -
+2025-09-01 14:15:32,903 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:15:32] "[33mGET /progreso HTTP/1.1[0m" 404 -
+2025-09-01 14:15:33,586 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:15:33] "[33mGET /progreso HTTP/1.1[0m" 404 -
+2025-09-01 14:15:34,903 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:15:34] "[33mGET /progreso HTTP/1.1[0m" 404 -
+2025-09-01 14:15:35,584 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:15:35] "[33mGET /progreso HTTP/1.1[0m" 404 -
+2025-09-01 14:15:36,893 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:15:36] "[33mGET /progreso HTTP/1.1[0m" 404 -
+2025-09-01 14:15:37,587 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:15:37] "[33mGET /progreso HTTP/1.1[0m" 404 -
+2025-09-01 14:15:53,459 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 14:15:53,459 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-01 14:15:53,461 - werkzeug - INFO -  * Restarting with stat
+2025-09-01 14:15:54,311 - werkzeug - WARNING -  * Debugger is active!
+2025-09-01 14:15:54,314 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-01 14:20:27,859 - werkzeug - INFO -  * Detected change in 'C:\\Users\\yacardenas\\Documents\\PROYECTOS\\ExtraerData\\BACKEND\\app.py', reloading
+2025-09-01 14:20:27,978 - werkzeug - INFO -  * Restarting with stat
+2025-09-01 14:20:28,970 - werkzeug - WARNING -  * Debugger is active!
+2025-09-01 14:20:28,973 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-01 14:24:31,008 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:24:31] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-09-01 14:24:31,012 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:24:31] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-09-01 14:24:31,507 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_1.xlsx
+2025-09-01 14:24:31,892 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_3.xlsx
+2025-09-01 14:24:32,131 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_5.xlsx
+2025-09-01 14:24:32,158 - pdf_extractor - INFO - Extraídos 6 archivos PDF del ZIP
+2025-09-01 14:24:32,465 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_2.xlsx
+2025-09-01 14:24:32,467 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-01 14:24:32,480 - pdf_extractor - INFO - Extraídos 4 archivos PDF del ZIP
+2025-09-01 14:24:32,705 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_4.xlsx
+2025-09-01 14:24:32,706 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-01 14:24:32,754 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\pruebas pa un masivo\excel_con_resultados.zip
+2025-09-01 14:24:33,031 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:24:33] "GET /procesar-masivo/status/massive_1756754671004_3ibd7enjb HTTP/1.1" 200 -
+2025-09-01 14:24:33,041 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:24:33] "GET /procesar-masivo/result/massive_1756754671004_3ibd7enjb HTTP/1.1" 200 -
+2025-09-01 14:35:06,621 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:35:06] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-09-01 14:35:06,625 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:35:06] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-09-01 14:35:07,013 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_1.xlsx
+2025-09-01 14:35:07,339 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_3.xlsx
+2025-09-01 14:35:07,503 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_5.xlsx
+2025-09-01 14:35:07,509 - pdf_extractor - INFO - Extraídos 6 archivos PDF del ZIP
+2025-09-01 14:35:07,800 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_2.xlsx
+2025-09-01 14:35:07,802 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-01 14:35:07,805 - pdf_extractor - INFO - Extraídos 4 archivos PDF del ZIP
+2025-09-01 14:35:08,012 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_4.xlsx
+2025-09-01 14:35:08,013 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-01 14:35:08,058 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\pruebas pa un masivo\excel_con_resultados.zip
+2025-09-01 14:35:08,645 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:35:08] "GET /procesar-masivo/status/massive_1756755306617_jesewj3gg HTTP/1.1" 200 -
+2025-09-01 14:35:08,653 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:35:08] "GET /procesar-masivo/result/massive_1756755306617_jesewj3gg HTTP/1.1" 200 -
+2025-09-01 14:36:53,660 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:36:53] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-09-01 14:36:53,664 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:36:53] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-09-01 14:36:54,023 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_1.xlsx
+2025-09-01 14:36:54,363 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_3.xlsx
+2025-09-01 14:36:54,529 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_5.xlsx
+2025-09-01 14:36:54,534 - pdf_extractor - INFO - Extraídos 6 archivos PDF del ZIP
+2025-09-01 14:36:54,826 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_2.xlsx
+2025-09-01 14:36:54,827 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-01 14:36:54,830 - pdf_extractor - INFO - Extraídos 4 archivos PDF del ZIP
+2025-09-01 14:36:55,034 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_4.xlsx
+2025-09-01 14:36:55,036 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-01 14:36:55,081 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\pruebas pa un masivo\excel_con_resultados.zip
+2025-09-01 14:36:55,683 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:36:55] "GET /procesar-masivo/status/massive_1756755413656_9scpfsd0u HTTP/1.1" 200 -
+2025-09-01 14:36:55,687 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:36:55] "GET /procesar-masivo/result/massive_1756755413656_9scpfsd0u HTTP/1.1" 200 -
+2025-09-01 14:37:45,499 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:37:45] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-09-01 14:37:45,502 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:37:45] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-09-01 14:37:45,879 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_1.xlsx
+2025-09-01 14:37:46,207 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_3.xlsx
+2025-09-01 14:37:46,372 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_5.xlsx
+2025-09-01 14:37:46,378 - pdf_extractor - INFO - Extraídos 6 archivos PDF del ZIP
+2025-09-01 14:37:46,662 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_2.xlsx
+2025-09-01 14:37:46,664 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-01 14:37:46,668 - pdf_extractor - INFO - Extraídos 4 archivos PDF del ZIP
+2025-09-01 14:37:46,872 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_4.xlsx
+2025-09-01 14:37:46,874 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-01 14:37:46,920 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\pruebas pa un masivo\excel_con_resultados.zip
+2025-09-01 14:37:47,529 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:37:47] "GET /procesar-masivo/status/massive_1756755465496_z2n6wpqom HTTP/1.1" 200 -
+2025-09-01 14:37:47,533 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:37:47] "GET /procesar-masivo/result/massive_1756755465496_z2n6wpqom HTTP/1.1" 200 -
+2025-09-01 14:42:34,651 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:42:34] "OPTIONS /procesar HTTP/1.1" 200 -
+2025-09-01 14:42:35,012 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\plantilla_1233.xlsx
+2025-09-01 14:42:35,012 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:42:35] "POST /procesar HTTP/1.1" 200 -
+2025-09-01 14:43:23,794 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:43:23] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-09-01 14:43:23,798 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:43:23] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-09-01 14:43:24,224 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_1.xlsx
+2025-09-01 14:43:24,503 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_3.xlsx
+2025-09-01 14:43:24,681 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_5.xlsx
+2025-09-01 14:43:24,687 - pdf_extractor - INFO - Extraídos 6 archivos PDF del ZIP
+2025-09-01 14:43:24,973 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_2.xlsx
+2025-09-01 14:43:24,974 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-01 14:43:24,977 - pdf_extractor - INFO - Extraídos 4 archivos PDF del ZIP
+2025-09-01 14:43:25,184 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_4.xlsx
+2025-09-01 14:43:25,185 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-01 14:43:25,228 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\pruebas pa un masivo\excel_con_resultados.zip
+2025-09-01 14:43:25,804 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:43:25] "GET /procesar-masivo/status/massive_1756755803791_a7zymew9u HTTP/1.1" 200 -
+2025-09-01 14:43:25,808 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:43:25] "GET /procesar-masivo/result/massive_1756755803791_a7zymew9u HTTP/1.1" 200 -
+2025-09-01 14:43:58,417 - werkzeug - INFO -  * Detected change in 'C:\\Users\\yacardenas\\Documents\\PROYECTOS\\ExtraerData\\BACKEND\\app.py', reloading
+2025-09-01 14:43:58,547 - werkzeug - INFO -  * Restarting with stat
+2025-09-01 14:43:59,472 - werkzeug - WARNING -  * Debugger is active!
+2025-09-01 14:43:59,475 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-01 14:44:10,536 - werkzeug - INFO -  * Detected change in 'C:\\Users\\yacardenas\\Documents\\PROYECTOS\\ExtraerData\\BACKEND\\app.py', reloading
+2025-09-01 14:44:10,635 - werkzeug - INFO -  * Restarting with stat
+2025-09-01 14:44:11,539 - werkzeug - WARNING -  * Debugger is active!
+2025-09-01 14:44:11,542 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-01 14:44:24,630 - werkzeug - INFO -  * Detected change in 'C:\\Users\\yacardenas\\Documents\\PROYECTOS\\ExtraerData\\BACKEND\\app.py', reloading
+2025-09-01 14:44:24,723 - werkzeug - INFO -  * Restarting with stat
+2025-09-01 14:44:25,576 - werkzeug - WARNING -  * Debugger is active!
+2025-09-01 14:44:25,579 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-01 14:44:51,178 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 14:44:51,179 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-01 14:44:51,180 - werkzeug - INFO -  * Restarting with stat
+2025-09-01 14:44:52,224 - werkzeug - WARNING -  * Debugger is active!
+2025-09-01 14:44:52,227 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-01 14:45:12,099 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:12] "OPTIONS /procesar HTTP/1.1" 200 -
+2025-09-01 14:45:12,543 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\plantilla_123345.xlsx
+2025-09-01 14:45:12,544 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:12] "POST /procesar HTTP/1.1" 200 -
+2025-09-01 14:45:34,538 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:34] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-09-01 14:45:34,542 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:34] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-09-01 14:45:36,562 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:36] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:45:38,553 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:38] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:45:40,559 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:40] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:45:42,564 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:42] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:45:44,561 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:44] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:45:46,554 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:46] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:45:48,562 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:48] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:45:50,550 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:50] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:45:52,549 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:52] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:45:54,551 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:54] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:45:56,558 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:56] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:45:58,563 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:45:58] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:46:00,551 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:46:00] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:46:02,554 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:46:02] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:46:04,557 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:46:04] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:46:06,552 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:46:06] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:46:08,567 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:46:08] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:46:10,552 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:46:10] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:46:12,552 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:46:12] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:46:14,552 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:46:14] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:46:16,566 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:46:16] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:46:18,568 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:46:18] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:46:20,559 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:46:20] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:46:22,564 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:46:22] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:46:24,567 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:46:24] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:46:26,557 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:46:26] "GET /procesar-masivo/status/massive_1756755934535_pkmv6oubj HTTP/1.1" 200 -
+2025-09-01 14:46:56,336 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-01 14:46:56,337 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-01 14:46:56,338 - werkzeug - INFO -  * Restarting with stat
+2025-09-01 14:46:57,277 - werkzeug - WARNING -  * Debugger is active!
+2025-09-01 14:46:57,280 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-01 14:47:08,105 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:47:08] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-09-01 14:47:08,109 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:47:08] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-09-01 14:47:08,542 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_1.xlsx
+2025-09-01 14:47:08,867 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_3.xlsx
+2025-09-01 14:47:09,036 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_5.xlsx
+2025-09-01 14:47:09,043 - pdf_extractor - INFO - Extraídos 6 archivos PDF del ZIP
+2025-09-01 14:47:09,339 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_2.xlsx
+2025-09-01 14:47:09,341 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-01 14:47:09,344 - pdf_extractor - INFO - Extraídos 4 archivos PDF del ZIP
+2025-09-01 14:47:09,550 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_4.xlsx
+2025-09-01 14:47:09,551 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-01 14:47:09,598 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\pruebas pa un masivo\excel_con_resultados.zip
+2025-09-01 14:47:10,135 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:47:10] "GET /procesar-masivo/status/massive_1756756028102_m2fj0xy29 HTTP/1.1" 200 -
+2025-09-01 14:47:10,139 - werkzeug - INFO - 127.0.0.1 - - [01/Sep/2025 14:47:10] "GET /procesar-masivo/result/massive_1756756028102_m2fj0xy29 HTTP/1.1" 200 -

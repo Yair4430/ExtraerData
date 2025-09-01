@@ -1,8 +1,8 @@
 import re
 from datetime import datetime, timedelta
 from typing import Optional
-from .data_models import DocumentoData
-from .constants import MESES, DIAS_ALERTA_VENCIMIENTO, logger
+from .modelos import DocumentoData
+from .configuracion import MESES, DIAS_ALERTA_VENCIMIENTO, logger
 
 class DocumentExtractor:
     """Clase para extraer datos de documentos desde texto PDF"""

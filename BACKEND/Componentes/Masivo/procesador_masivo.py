@@ -4,10 +4,10 @@ import threading
 from pathlib import Path
 from typing import List, Dict
 from tkinter import messagebox
-from ..Normal.document_extractor import DocumentExtractor
-from ..Normal.file_processor import FileProcessor
-from ..Normal.excel_exporter import ExcelExporter
-from ..Normal.constants import logger
+from ..Normal.extractor import DocumentExtractor
+from ..Normal.archivos import FileProcessor
+from ..Normal.excel import ExcelExporter
+from ..Normal.configuracion import logger
 
 class MassiveProcessor:
     """Clase para procesamiento masivo de múltiples carpetas/archivos"""

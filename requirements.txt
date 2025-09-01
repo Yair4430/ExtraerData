@@ -1,6 +1,0 @@
-pytesseract
-opencv-python
-pandas
-openpyxl
-pdf2image
-tesseract
