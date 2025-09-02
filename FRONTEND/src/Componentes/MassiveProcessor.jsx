@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 import "./ProcessorStyles.css";
 
 function MassiveProcessor() {
@@ -8,7 +9,6 @@ function MassiveProcessor() {
   const [status, setStatus] = useState(null);
   const [progress, setProgress] = useState(0);
   const [result, setResult] = useState(null);
-  const [error, setError] = useState(null);
   const [pollingInterval, setPollingInterval] = useState(null);
 
   const generateProcessId = () =>
@@ -16,10 +16,18 @@ function MassiveProcessor() {
 
   const iniciarProcesamiento = async () => {
     setLoading(true);
-    setError(null);
     setStatus(null);
     setProgress(0);
     setResult(null);
+
+    Swal.fire({
+      title: "Iniciando procesamiento...",
+      text: "Por favor espera mientras se validan los archivos",
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+    });
 
     const newProcessId = generateProcessId();
     setProcessId(newProcessId);
@@ -36,8 +44,12 @@ function MassiveProcessor() {
 
       iniciarPolling(newProcessId);
     } catch (err) {
-      setError(err.message);
       setLoading(false);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: err.message,
+      });
     }
   };
 
@@ -49,21 +61,51 @@ function MassiveProcessor() {
         const statusResponse = await fetch(`http://127.0.0.1:5000/procesar-masivo/status/${id}`);
         const statusData = await statusResponse.json();
 
+        setStatus(statusData);
+        setProgress(statusData.progress || 0);
+
         if (["completed", "error", "cancelled"].includes(statusData.status)) {
           clearInterval(interval);
           setLoading(false);
-
+          
           if (statusData.status === "completed") {
             const resultResponse = await fetch(`http://127.0.0.1:5000/procesar-masivo/result/${id}`);
             const resultData = await resultResponse.json();
             setResult(resultData);
+
+            Swal.fire({
+              icon: "success",
+              title: "Procesamiento completado 🎉",
+              text: "Todos los documentos fueron procesados con éxito",
+            }).then(() => {
+              // 🔄 Resetear estados después de aceptar
+              setRuta("");
+              setProcessId("");
+              setStatus(null);
+              setProgress(0);
+              setResult(null);
+            });
+          } else if (statusData.status === "error") {
+            Swal.fire({
+              icon: "error",
+              title: "Error en el procesamiento",
+              text: statusData.message || "Ocurrió un error inesperado",
+            });
+          } else if (statusData.status === "cancelled") {
+            Swal.fire({
+              icon: "info",
+              title: "Proceso cancelado",
+              text: "El procesamiento fue detenido.",
+            });
           }
         }
-
-        setStatus(statusData);
-        setProgress(statusData.progress || 0);
       } catch (err) {
         console.error("Error en polling:", err);
+        Swal.fire({
+          icon: "error",
+          title: "Error en conexión",
+          text: "No se pudo obtener el estado del proceso",
+        });
       }
     }, 2000);
 
@@ -75,20 +117,6 @@ function MassiveProcessor() {
       if (pollingInterval) clearInterval(pollingInterval);
     };
   }, [pollingInterval]);
-
-  const getStatusClass = () => {
-    if (!status) return "";
-    switch (status.status) {
-      case "completed":
-        return "status-completed";
-      case "error":
-        return "status-error";
-      case "cancelled":
-        return "status-cancelled";
-      default:
-        return "status-processing";
-    }
-  };
 
   return (
     <div className="processor-container">
@@ -117,26 +145,6 @@ function MassiveProcessor() {
         >
           {loading ? "Procesando..." : "Iniciar Procesamiento Masivo"}
         </button>
-
-        {status && (
-          <div className={`status-message ${getStatusClass()}`}>
-            <p>{status.message}</p>
-            {status.status === "processing" && (
-              <p className="form-hint">
-                Procesando... Esto puede tomar varios minutos dependiendo de la cantidad de archivos.
-              </p>
-            )}
-          </div>
-        )}
-
-        {result && result.status === "error" && (
-          <div className="result-container result-error">
-            <h3 className="result-title">Error en el Procesamiento</h3>
-            <p>{result.error}</p>
-          </div>
-        )}
-
-        {error && <div className="error-message">{error}</div>}
       </div>
     </div>
   );
