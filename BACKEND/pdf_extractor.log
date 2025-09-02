@@ -334,3 +334,77 @@
 2025-09-02 10:07:34,871 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\pruebas pa un masivo\excel_con_resultados.zip
 2025-09-02 10:07:35,472 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 10:07:35] "GET /procesar-masivo/status/massive_1756825653449_zouqsqkxt HTTP/1.1" 200 -
 2025-09-02 10:07:35,478 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 10:07:35] "GET /procesar-masivo/result/massive_1756825653449_zouqsqkxt HTTP/1.1" 200 -
+2025-09-02 10:10:25,329 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-02 10:10:25,329 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-02 10:10:25,330 - werkzeug - INFO -  * Restarting with stat
+2025-09-02 10:10:26,168 - werkzeug - WARNING -  * Debugger is active!
+2025-09-02 10:10:26,171 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-02 11:01:45,421 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:01:45] "OPTIONS /procesar HTTP/1.1" 200 -
+2025-09-02 11:01:45,856 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\plantilla_1234.xlsx
+2025-09-02 11:01:45,856 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:01:45] "POST /procesar HTTP/1.1" 200 -
+2025-09-02 11:02:06,205 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:02:06] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-09-02 11:02:06,208 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:02:06] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-09-02 11:02:06,596 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_1.xlsx
+2025-09-02 11:02:06,876 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_3.xlsx
+2025-09-02 11:02:07,046 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_5.xlsx
+2025-09-02 11:02:07,053 - pdf_extractor - INFO - Extraídos 6 archivos PDF del ZIP
+2025-09-02 11:02:07,343 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_2.xlsx
+2025-09-02 11:02:07,344 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-02 11:02:07,347 - pdf_extractor - INFO - Extraídos 4 archivos PDF del ZIP
+2025-09-02 11:02:07,560 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_4.xlsx
+2025-09-02 11:02:07,561 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-02 11:02:07,605 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\pruebas pa un masivo\excel_con_resultados.zip
+2025-09-02 11:02:08,229 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:02:08] "GET /procesar-masivo/status/massive_1756828926203_g77ac87tt HTTP/1.1" 200 -
+2025-09-02 11:02:08,238 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:02:08] "GET /procesar-masivo/result/massive_1756828926203_g77ac87tt HTTP/1.1" 200 -
+2025-09-02 11:03:30,580 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:03:30] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-09-02 11:03:30,583 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:03:30] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-09-02 11:03:31,003 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_1.xlsx
+2025-09-02 11:03:31,282 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_3.xlsx
+2025-09-02 11:03:31,450 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_5.xlsx
+2025-09-02 11:03:31,456 - pdf_extractor - INFO - Extraídos 6 archivos PDF del ZIP
+2025-09-02 11:03:31,742 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_2.xlsx
+2025-09-02 11:03:31,743 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-02 11:03:31,747 - pdf_extractor - INFO - Extraídos 4 archivos PDF del ZIP
+2025-09-02 11:03:31,995 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_4.xlsx
+2025-09-02 11:03:31,996 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-02 11:03:32,047 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\pruebas pa un masivo\excel_con_resultados.zip
+2025-09-02 11:03:32,600 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:03:32] "GET /procesar-masivo/status/massive_1756829010578_uluqa9ccr HTTP/1.1" 200 -
+2025-09-02 11:03:32,609 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:03:32] "GET /procesar-masivo/result/massive_1756829010578_uluqa9ccr HTTP/1.1" 200 -
+2025-09-02 11:04:48,612 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:04:48] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-09-02 11:04:48,615 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:04:48] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-09-02 11:04:49,029 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_1.xlsx
+2025-09-02 11:04:49,311 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_3.xlsx
+2025-09-02 11:04:49,480 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_5.xlsx
+2025-09-02 11:04:49,486 - pdf_extractor - INFO - Extraídos 6 archivos PDF del ZIP
+2025-09-02 11:04:49,775 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_2.xlsx
+2025-09-02 11:04:49,777 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-02 11:04:49,780 - pdf_extractor - INFO - Extraídos 4 archivos PDF del ZIP
+2025-09-02 11:04:49,984 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_4.xlsx
+2025-09-02 11:04:49,986 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-02 11:04:50,030 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\pruebas pa un masivo\excel_con_resultados.zip
+2025-09-02 11:04:50,626 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:04:50] "GET /procesar-masivo/status/massive_1756829088610_fnyjb5t18 HTTP/1.1" 200 -
+2025-09-02 11:04:50,635 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:04:50] "GET /procesar-masivo/result/massive_1756829088610_fnyjb5t18 HTTP/1.1" 200 -
+2025-09-02 11:05:42,068 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:05:42] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-09-02 11:05:42,072 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:05:42] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-09-02 11:05:42,501 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_1.xlsx
+2025-09-02 11:05:42,779 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_3.xlsx
+2025-09-02 11:05:42,957 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_5.xlsx
+2025-09-02 11:05:42,962 - pdf_extractor - INFO - Extraídos 6 archivos PDF del ZIP
+2025-09-02 11:05:43,253 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_2.xlsx
+2025-09-02 11:05:43,255 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-02 11:05:43,258 - pdf_extractor - INFO - Extraídos 4 archivos PDF del ZIP
+2025-09-02 11:05:43,463 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Pruebas_4.xlsx
+2025-09-02 11:05:43,465 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-09-02 11:05:43,510 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\pruebas pa un masivo\excel_con_resultados.zip
+2025-09-02 11:05:44,086 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:05:44] "GET /procesar-masivo/status/massive_1756829142066_j81uu8xmx HTTP/1.1" 200 -
+2025-09-02 11:05:44,092 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:05:44] "GET /procesar-masivo/result/massive_1756829142066_j81uu8xmx HTTP/1.1" 200 -
+2025-09-02 11:06:06,324 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:06:06] "OPTIONS /procesar HTTP/1.1" 200 -
+2025-09-02 11:06:06,729 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\plantilla_1234.xlsx
+2025-09-02 11:06:06,729 - werkzeug - INFO - 127.0.0.1 - - [02/Sep/2025 11:06:06] "POST /procesar HTTP/1.1" 200 -
+2025-09-02 11:07:07,807 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-02 11:07:07,807 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-02 11:07:07,809 - werkzeug - INFO -  * Restarting with stat
+2025-09-02 11:07:08,700 - werkzeug - WARNING -  * Debugger is active!
+2025-09-02 11:07:08,703 - werkzeug - INFO -  * Debugger PIN: 523-577-626
