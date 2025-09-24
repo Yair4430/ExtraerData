@@ -6,8 +6,8 @@ from openpyxl.styles import Font, Alignment
 from openpyxl.worksheet.datavalidation import DataValidation
 from datetime import datetime
 from typing import List
-from .Modelos import DocumentoData
-from .Configuracion import logger
+from .modelos import DocumentoData
+from .configuracion import logger
 
 class ExcelExporter:
     

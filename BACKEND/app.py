@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from ExtraerData.Normal.Archivos import FileProcessor
-from ExtraerData.Normal.Extractor import DocumentExtractor
-from ExtraerData.Normal.Excel import ExcelExporter
-from ExtraerData.Masivo.ProcesadorMasivo import MassiveProcessor  
-from ExtraerData.Normal.Configuracion import logger
+from ExtraerData.Normal.archivos import FileProcessor
+from ExtraerData.Normal.extractor import DocumentExtractor
+from ExtraerData.Normal.excel import ExcelExporter
+from ExtraerData.Masivo.procesadorMasivo import MassiveProcessor  
+from ExtraerData.Normal.configuracion import logger
 import os,threading
 
 # Configuración inicial de la aplicación Flask con soporte CORS

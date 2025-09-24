@@ -1,7 +1,7 @@
 import os, tempfile, shutil, zipfile
 from pathlib import Path
 from typing import List
-from .Configuracion import RARFILE_AVAILABLE, logger
+from .configuracion import RARFILE_AVAILABLE, logger
 
 class FileProcessor:
     

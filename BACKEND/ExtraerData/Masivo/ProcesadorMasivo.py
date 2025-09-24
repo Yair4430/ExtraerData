@@ -2,10 +2,10 @@ import os, zipfile
 from pathlib import Path
 from typing import List, Dict
 from tkinter import messagebox
-from ..Normal.Extractor import DocumentExtractor
-from ..Normal.Archivos import FileProcessor
-from ..Normal.Excel import ExcelExporter
-from ..Normal.Configuracion import logger
+from ..Normal.extractor import DocumentExtractor
+from ..Normal.archivos import FileProcessor
+from ..Normal.excel import ExcelExporter
+from ..Normal.configuracion import logger
 
 class MassiveProcessor:
     

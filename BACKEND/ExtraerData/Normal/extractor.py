@@ -1,8 +1,8 @@
 import re
 from datetime import datetime
 from typing import Optional
-from .Modelos import DocumentoData
-from .Configuracion import MESES, logger
+from .modelos import DocumentoData
+from .configuracion import MESES, logger
 
 class DocumentExtractor:
     
