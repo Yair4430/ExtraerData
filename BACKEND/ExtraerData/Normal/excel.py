@@ -6,40 +6,40 @@ from openpyxl.styles import Font, Alignment
 from openpyxl.worksheet.datavalidation import DataValidation
 from datetime import datetime
 from typing import List
-from .modelos import DocumentoData
-from .configuracion import logger
+from .Modelos import DocumentoData
+from .Configuracion import logger
 
 class ExcelExporter:
-    """Clase para exportar datos a Excel con formato y validaciones"""
     
     def __init__(self):
+        # Inicializa el exportador de Excel sin configuración específica
         pass
     
     def export_to_excel(self, extracted_data: List[DocumentoData], ficha: str) -> str:
-        """Exporta los datos a un archivo Excel con formato y validaciones"""
+        # Exporta los datos extraídos a un archivo Excel con formato y validaciones
         if not extracted_data:
             raise ValueError("No hay datos para exportar")
 
         try:
-            # Preparar datos para DataFrame
+            # Prepara los datos para crear el DataFrame de pandas
             data_for_df = []
             for data in extracted_data:
                 data_dict = {'TIPO DE DOCUMENTO': data.tipo_documento, 'NUMERO DE DOCUMENTO': data.numero_documento, 'NOMBRES Y APELLIDOS': data.nombres_apellidos, 'DIA': data.dia, 'MES': data.mes.upper() if data.mes else '', 'AÑO': data.año }
                 data_for_df.append(data_dict)
 
-            # Crear DataFrame
+            # Crea DataFrame de pandas con los datos estructurados
             df = pd.DataFrame(data_for_df)
 
-            # Guardar automáticamente en Descargas
+            # Define la ruta de guardado en la carpeta Descargas del usuario
             filename = f'plantilla_{ficha}.xlsx'
             downloads_path = str(Path.home() / "Downloads")
             file_path = os.path.join(downloads_path, filename)
 
-            # Guardar Excel inicial
+            # Guarda el DataFrame en archivo Excel usando openpyxl como motor
             with pd.ExcelWriter(file_path, engine='openpyxl') as writer:
                 df.to_excel(writer, sheet_name='Datos', index=False)
 
-            # Aplicar formato y validaciones
+            # Aplica formato visual y validaciones de datos al archivo Excel
             self.ajustar_formato_excel(file_path)
             self.agregar_validaciones_excel(file_path)
 
@@ -51,11 +51,11 @@ class ExcelExporter:
             raise
 
     def ajustar_formato_excel(self, file_path: str):
-        """Ajusta el formato del archivo Excel"""
+        # Aplica formato visual al archivo Excel (ancho de columnas y estilo de encabezados)
         wb = load_workbook(file_path)
         ws = wb.active
 
-        # Ajustar ancho de columnas
+        # Configura el ancho específico para cada columna según el tipo de dato
         column_widths = {
             'A': 20,  # TIPO DE DOCUMENTO
             'B': 20,  # NUMERO DE DOCUMENTO
@@ -68,7 +68,7 @@ class ExcelExporter:
         for col_letter, width in column_widths.items():
             ws.column_dimensions[col_letter].width = width
 
-        # Formato de encabezados
+        # Aplica formato de negrita y centrado a los encabezados de columna
         for cell in ws[1]:
             cell.font = Font(bold=True)
             cell.alignment = Alignment(horizontal='center')
@@ -76,14 +76,14 @@ class ExcelExporter:
         wb.save(file_path)
 
     def agregar_validaciones_excel(self, file_path: str):
-        """Agrega validaciones de datos al archivo Excel"""
+        # Agrega validaciones de datos para restringir entradas incorrectas en el Excel
         wb = load_workbook(file_path)
         ws = wb.active
         
-        # Obtener el año actual
+        # Obtiene el año actual para validaciones de rango temporal
         año_actual = datetime.now().year
         
-        # 1. Validación para TIPO DE DOCUMENTO (Columna A)
+        # 1. Validación para TIPO DE DOCUMENTO - lista desplegable con opciones predefinidas
         dv_tipo_doc = DataValidation(
             type="list",
             formula1='"CC,TI,CE,PPT"',
@@ -98,7 +98,7 @@ class ExcelExporter:
         dv_tipo_doc.add('A2:A1000')
         ws.add_data_validation(dv_tipo_doc)
         
-        # 2. Validación para DIA (Columna D)
+        # 2. Validación para DIA - solo permite números entre 1 y 31
         dv_dia = DataValidation(
             type="whole",
             operator="between",
@@ -115,7 +115,7 @@ class ExcelExporter:
         dv_dia.add('D2:D1000')
         ws.add_data_validation(dv_dia)
         
-        # 3. Validación para MES (Columna E)
+        # 3. Validación para MES - lista desplegable con los 12 meses en mayúsculas
         dv_mes = DataValidation(
             type="list",
             formula1='"ENERO,FEBRERO,MARZO,ABRIL,MAYO,JUNIO,JULIO,AGOSTO,SEPTIEMBRE,OCTUBRE,NOVIEMBRE,DICIEMBRE"',
@@ -130,7 +130,7 @@ class ExcelExporter:
         dv_mes.add('E2:E1000')
         ws.add_data_validation(dv_mes)
         
-        # 4. Validación para AÑO (Columna F)
+        # 4. Validación para AÑO - rango entre 1900 y el año actual
         dv_año = DataValidation(
             type="whole",
             operator="between",
@@ -150,12 +150,12 @@ class ExcelExporter:
         wb.save(file_path)
 
     def export_to_excel_massive(self, extracted_data: List[DocumentoData], folder_name: str, output_dir: Path) -> str:
-        """Exporta datos a Excel para el procesamiento masivo"""
+        # Versión para procesamiento masivo - exporta a directorio específico en lugar de Descargas
         if not extracted_data:
             raise ValueError("No hay datos para exportar")
 
         try:
-            # Preparar datos para DataFrame
+            # Prepara datos de la misma manera que la exportación individual
             data_for_df = []
             for data in extracted_data:
                 data_dict = {
@@ -168,18 +168,15 @@ class ExcelExporter:
                 }
                 data_for_df.append(data_dict)
 
-            # Crear DataFrame
+            # Crea DataFrame y guarda en el directorio de salida especificado
             df = pd.DataFrame(data_for_df)
-
-            # Guardar en la carpeta especificada
             filename = f'plantilla_{folder_name}.xlsx'
             file_path = os.path.join(output_dir, filename)
 
-            # Guardar Excel inicial
             with pd.ExcelWriter(file_path, engine='openpyxl') as writer:
                 df.to_excel(writer, sheet_name='Datos', index=False)
 
-            # Aplicar formato y validaciones
+            # Aplica mismo formato y validaciones que la versión individual
             self.ajustar_formato_excel(file_path)
             self.agregar_validaciones_excel(file_path)
 

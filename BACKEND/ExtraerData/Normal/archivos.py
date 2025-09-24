@@ -1,44 +1,46 @@
 import os, tempfile, shutil, zipfile
 from pathlib import Path
 from typing import List
-from .configuracion import RARFILE_AVAILABLE, logger
+from .Configuracion import RARFILE_AVAILABLE, logger
 
 class FileProcessor:
-    """Clase para procesar archivos y carpetas"""
     
     def __init__(self):
+        # Inicializa el procesador de archivos con un directorio temporal para extracciones
         self.temp_dir = None
     
     def extract_compressed_file(self, file_path: str) -> str:
-        """Extrae un archivo comprimido a una carpeta temporal"""
+        # Extrae archivos PDF de archivos comprimidos (ZIP o RAR) a un directorio temporal
         try:
-            # Crear directorio temporal
+            # Crea un directorio temporal único para esta extracción
             self.temp_dir = tempfile.mkdtemp(prefix="pdf_extractor_")
             file_extension = os.path.splitext(file_path)[1].lower()
             
             if file_extension == '.zip':
+                # Extrae solo archivos PDF de archivos ZIP
                 with zipfile.ZipFile(file_path, 'r') as zip_ref:
-                    # Extraer solo archivos PDF
                     pdf_files = [f for f in zip_ref.namelist() if f.lower().endswith('.pdf')]
                     for pdf_file in pdf_files:
                         zip_ref.extract(pdf_file, self.temp_dir)
                     logger.info(f"Extraídos {len(pdf_files)} archivos PDF del ZIP")
                     
             elif file_extension == '.rar' and RARFILE_AVAILABLE:
+                # Extrae solo archivos PDF de archivos RAR (si la librería está disponible)
                 import rarfile
                 with rarfile.RarFile(file_path, 'r') as rar_ref:
-                    # Extraer solo archivos PDF
                     pdf_files = [f for f in rar_ref.namelist() if f.lower().endswith('.pdf')]
                     for pdf_file in pdf_files:
                         rar_ref.extract(pdf_file, self.temp_dir)
                     logger.info(f"Extraídos {len(pdf_files)} archivos PDF del RAR")
                     
             else:
+                # Maneja formatos no soportados
                 raise ValueError(f"Formato de archivo no soportado: {file_extension}")
                 
             return self.temp_dir
             
         except Exception as e:
+            # Limpia el directorio temporal en caso de error y propaga la excepción
             logger.error(f"Error extrayendo archivo comprimido: {e}")
             if self.temp_dir and os.path.exists(self.temp_dir):
                 shutil.rmtree(self.temp_dir)
@@ -46,7 +48,7 @@ class FileProcessor:
             raise
 
     def cleanup_temp_files(self):
-        """Limpia los archivos temporales"""
+        # Elimina el directorio temporal y todos sus contenidos de forma segura
         if self.temp_dir and os.path.exists(self.temp_dir):
             try:
                 shutil.rmtree(self.temp_dir)
@@ -56,7 +58,7 @@ class FileProcessor:
                 logger.error(f"Error limpiando archivos temporales: {e}")
     
     def find_pdf_files(self, folder_path: str) -> List[str]:
-        """Busca archivos PDF recursivamente en una carpeta"""
+        # Busca recursivamente todos los archivos PDF dentro de una carpeta y sus subcarpetas
         pdf_files = []
         for root, dirs, files in os.walk(folder_path):
             for file in files:

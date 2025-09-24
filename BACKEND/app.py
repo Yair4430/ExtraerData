@@ -1,20 +1,22 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from ExtraerData.Normal.archivos import FileProcessor
-from ExtraerData.Normal.extractor import DocumentExtractor
-from ExtraerData.Normal.excel import ExcelExporter
-from ExtraerData.Masivo.procesador_masivo import MassiveProcessor  
-from ExtraerData.Normal.configuracion import logger
+from ExtraerData.Normal.Archivos import FileProcessor
+from ExtraerData.Normal.Extractor import DocumentExtractor
+from ExtraerData.Normal.Excel import ExcelExporter
+from ExtraerData.Masivo.ProcesadorMasivo import MassiveProcessor  
+from ExtraerData.Normal.Configuracion import logger
 import os,threading
 
+# Configuración inicial de la aplicación Flask con soporte CORS
 app = Flask(__name__)
-CORS(app)  # Habilitar CORS para toda la aplicación
+CORS(app)  # Habilita CORS para permitir peticiones desde diferentes dominios
 
-# Diccionario para almacenar el estado de progreso de cada procesamiento masivo
+# Diccionario global para almacenar el estado de progreso de cada procesamiento masivo
 massive_processing_status = {}
 
 @app.route("/procesar", methods=["POST"])
 def procesar_archivos():
+    # Endpoint para procesamiento individual de archivos o carpetas con documentos PDF
     try:
         data = request.get_json()
         ruta = data.get("ruta")
@@ -23,11 +25,12 @@ def procesar_archivos():
         if not ruta or not os.path.exists(ruta):
             return jsonify({"error": "La ruta proporcionada no existe"}), 400
 
+        # Inicializa los componentes necesarios para el procesamiento
         file_processor = FileProcessor()
         extractor = DocumentExtractor()
         excel_exporter = ExcelExporter()
 
-        # Si es .zip o .rar lo extraemos a temp
+        # Maneja diferentes tipos de entrada: archivos comprimidos o carpetas
         if os.path.isfile(ruta) and ruta.lower().endswith((".zip", ".rar")):
             carpeta_trabajo = file_processor.extract_compressed_file(ruta)
         elif os.path.isdir(ruta):
@@ -35,13 +38,13 @@ def procesar_archivos():
         else:
             return jsonify({"error": "Debe ser una carpeta, un .zip o un .rar válido"}), 400
 
-        # Buscar PDFs
+        # Busca todos los archivos PDF en la carpeta de trabajo
         pdf_files = file_processor.find_pdf_files(carpeta_trabajo)
 
         if not pdf_files:
             return jsonify({"error": "No se encontraron archivos PDF"}), 400
 
-        # Procesar PDFs
+        # Procesa cada PDF encontrado extrayendo su texto y datos estructurados
         documentos_extraidos = []
         for pdf in pdf_files:
             try:
@@ -55,10 +58,10 @@ def procesar_archivos():
         if not documentos_extraidos:
             return jsonify({"error": "No se pudo extraer información de los PDFs"}), 400
 
-        # Exportar a Excel
+        # Exporta los datos extraídos a un archivo Excel
         excel_path = excel_exporter.export_to_excel(documentos_extraidos, ficha)
 
-        # Limpiar si hubo temporales
+        # Limpia archivos temporales si se extrajeron de archivos comprimidos
         file_processor.cleanup_temp_files()
 
         return jsonify({"message": "Proceso completado con éxito", "excel_path": excel_path, "documentos_procesados": len(documentos_extraidos)})
@@ -69,7 +72,7 @@ def procesar_archivos():
 
 @app.route("/procesar-masivo", methods=["POST"])
 def procesar_masivo():
-
+    # Endpoint para iniciar procesamiento masivo de múltiples carpetas/archivos ZIP
     try:
         data = request.get_json()
         ruta = data.get("ruta")
@@ -81,10 +84,10 @@ def procesar_masivo():
         if not os.path.isdir(ruta):
             return jsonify({"error": "La ruta debe ser una carpeta para procesamiento masivo"}), 400
 
-        # Inicializar el estado del procesamiento
+        # Inicializa el estado del procesamiento en el diccionario global
         massive_processing_status[process_id] = {"status": "processing", "progress": 0, "message": "Iniciando procesamiento...", "result": None, "error": None}
 
-        # Ejecutar el procesamiento en un hilo separado
+        # Ejecuta el procesamiento en un hilo separado para no bloquear la aplicación
         thread = threading.Thread(
             target=run_massive_processing,
             args=(ruta, process_id)
@@ -100,7 +103,7 @@ def procesar_masivo():
 
 @app.route("/procesar-masivo/status/<process_id>", methods=["GET"])
 def get_massive_status(process_id):
-
+    # Endpoint para consultar el estado actual de un procesamiento masivo en curso
     if process_id not in massive_processing_status:
         return jsonify({"error": "ID de proceso no encontrado"}), 404
 
@@ -109,7 +112,7 @@ def get_massive_status(process_id):
 
 @app.route("/procesar-masivo/result/<process_id>", methods=["GET"])
 def get_massive_result(process_id):
-
+    # Endpoint para obtener el resultado final de un procesamiento masivo completado
     if process_id not in massive_processing_status:
         return jsonify({"error": "ID de proceso no encontrado"}), 404
 
@@ -123,10 +126,11 @@ def get_massive_result(process_id):
         return jsonify({"status": "processing", "message": "El procesamiento aún está en curso"})
 
 def run_massive_processing(ruta, process_id):
-
+    # Función que ejecuta el procesamiento masivo en un hilo separado
     try:
         processor = MassiveProcessor()
         
+        # Callbacks para actualizar el progreso y estado durante el procesamiento
         def progress_callback(progress):
             massive_processing_status[process_id]["progress"] = progress
         
@@ -134,9 +138,10 @@ def run_massive_processing(ruta, process_id):
             massive_processing_status[process_id]["message"] = message
             massive_processing_status[process_id]["progress"] = massive_processing_status[process_id].get("progress", 0)
         
-        # Ejecutar procesamiento masivo
+        # Ejecuta el procesamiento masivo principal
         zip_path = processor.process_massive(ruta, progress_callback, status_callback)
         
+        # Actualiza el estado final según el resultado del procesamiento
         if zip_path:
             massive_processing_status[process_id] = {"status": "completed", "progress": 100, "message": "Procesamiento masivo completado exitosamente",
                 "result": {
@@ -153,4 +158,5 @@ def run_massive_processing(ruta, process_id):
         massive_processing_status[process_id] = {"status": "error","progress": 0,"message": "Error durante el procesamiento","result": None,"error": str(e)}
 
 if __name__ == "__main__":
+    # Inicia el servidor Flask en modo debug
     app.run(debug=True)
