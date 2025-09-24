@@ -1,6 +1,4 @@
-import os
-import zipfile
-import threading
+import os, zipfile
 from pathlib import Path
 from typing import List, Dict
 from tkinter import messagebox
@@ -10,7 +8,6 @@ from ..Normal.excel import ExcelExporter
 from ..Normal.configuracion import logger
 
 class MassiveProcessor:
-    """Clase para procesamiento masivo de múltiples carpetas/archivos"""
     
     def __init__(self):
         self.extractor = DocumentExtractor()
@@ -21,7 +18,6 @@ class MassiveProcessor:
         self.total_items = 0
         
     def process_massive(self, main_folder_path: str, progress_callback=None, status_callback=None) -> str:
-        """Procesa todas las subcarpetas y archivos ZIP en la carpeta principal"""
         try:
             self.processing = True
             self.current_progress = 0
@@ -158,7 +154,6 @@ class MassiveProcessor:
                 self.file_processor.cleanup_temp_files()
     
     def create_results_zip(self, excel_files: List[str], main_folder_path: str) -> str:
-        """Crea un archivo ZIP con todos los resultados"""
         zip_path = os.path.join(main_folder_path, "excel_con_resultados.zip")
         
         with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
@@ -169,7 +164,6 @@ class MassiveProcessor:
         return zip_path
     
     def cleanup_temp_files(self, temp_dir: Path):
-        """Limpia archivos temporales"""
         try:
             for file in temp_dir.glob("*"):
                 file.unlink()
@@ -178,7 +172,6 @@ class MassiveProcessor:
             logger.error(f"Error limpiando archivos temporales: {e}")
     
     def clean_filename(self, filename: str) -> str:
-        """Limpia el nombre de archivo para que sea válido"""
         invalid_chars = '<>:"/\\|?*'
         for char in invalid_chars:
             filename = filename.replace(char, '_')

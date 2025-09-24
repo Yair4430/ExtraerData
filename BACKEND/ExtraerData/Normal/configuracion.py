@@ -1,5 +1,4 @@
-import logging
-import sys
+import logging, sys
 
 # Configuración de logging
 logging.basicConfig(
@@ -13,10 +12,7 @@ logging.basicConfig(
 logger = logging.getLogger('pdf_extractor')
 
 # Constantes
-MESES = {
-    'Enero': 1, 'Febrero': 2, 'Marzo': 3, 'Abril': 4, 'Mayo': 5, 'Junio': 6,
-    'Julio': 7, 'Agosto': 8, 'Septiembre': 9, 'Octubre': 10, 'Noviembre': 11, 'Diciembre': 12
-}
+MESES = { 'Enero': 1, 'Febrero': 2, 'Marzo': 3, 'Abril': 4, 'Mayo': 5, 'Junio': 6, 'Julio': 7, 'Agosto': 8, 'Septiembre': 9, 'Octubre': 10, 'Noviembre': 11, 'Diciembre': 12}
 
 DIAS_ALERTA_VENCIMIENTO = 30  # Días antes del vencimiento para alertar
 

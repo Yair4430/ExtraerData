@@ -1,7 +1,7 @@
 import pandas as pd
-from pathlib import Path
 import os
 from openpyxl import load_workbook
+from pathlib import Path
 from openpyxl.styles import Font, Alignment
 from openpyxl.worksheet.datavalidation import DataValidation
 from datetime import datetime
@@ -24,14 +24,7 @@ class ExcelExporter:
             # Preparar datos para DataFrame
             data_for_df = []
             for data in extracted_data:
-                data_dict = {
-                    'TIPO DE DOCUMENTO': data.tipo_documento,
-                    'NUMERO DE DOCUMENTO': data.numero_documento,
-                    'NOMBRES Y APELLIDOS': data.nombres_apellidos,
-                    'DIA': data.dia,
-                    'MES': data.mes.upper() if data.mes else '',  # Convertir a mayúsculas
-                    'AÑO': data.año
-                }
+                data_dict = {'TIPO DE DOCUMENTO': data.tipo_documento, 'NUMERO DE DOCUMENTO': data.numero_documento, 'NOMBRES Y APELLIDOS': data.nombres_apellidos, 'DIA': data.dia, 'MES': data.mes.upper() if data.mes else '', 'AÑO': data.año }
                 data_for_df.append(data_dict)
 
             # Crear DataFrame

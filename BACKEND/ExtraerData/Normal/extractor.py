@@ -1,8 +1,8 @@
 import re
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Optional
 from .modelos import DocumentoData
-from .configuracion import MESES, DIAS_ALERTA_VENCIMIENTO, logger
+from .configuracion import MESES, logger
 
 class DocumentExtractor:
     """Clase para extraer datos de documentos desde texto PDF"""
@@ -82,28 +82,10 @@ class DocumentExtractor:
             dia_v, mes_v, anio_v = vigencia_match.group(1), vigencia_match.group(2).capitalize(), vigencia_match.group(3)
             fecha_vigencia = datetime(int(anio_v), MESES.get(mes_v, 1), int(dia_v))
             
-            # Calcular días restantes y estado
-            dias_restantes = (fecha_vigencia - datetime.now()).days
-            
-            if dias_restantes < 0:
-                estado = 'VENCIDO'
-            elif dias_restantes <= DIAS_ALERTA_VENCIMIENTO:
-                estado = 'POR VENCER'
-            else:
-                estado = 'VIGENTE'
+            # Solo extracción, sin cálculos de vencimiento
+            estado = 'EXTRAÍDO'
                 
-            return DocumentoData(
-                tipo_documento='CC',
-                numero_documento=cedula,
-                nombres_apellidos=nombres_apellidos,
-                dia=dia,
-                mes=mes,
-                año=anio,
-                fecha_vigencia=fecha_vigencia,
-                dias_restantes=dias_restantes,
-                estado=estado,
-                archivo_origen=filename
-            )
+            return DocumentoData(tipo_documento='CC', numero_documento=cedula, nombres_apellidos=nombres_apellidos, dia=dia, mes=mes, año=anio, fecha_vigencia=fecha_vigencia, dias_restantes="N/A", estado=estado, archivo_origen=filename )
             
         except Exception as e:
             logger.error(f"Error extrayendo datos de CC: {e}")
@@ -132,23 +114,11 @@ class DocumentExtractor:
                 # Limpiar posibles espacios extras
                 nombres_apellidos = ' '.join(nombres_apellidos.split())
             
-            # Para TI, no hay fecha de vigencia específica
+            # Solo extracción, sin cálculos de vencimiento
             fecha_vigencia = None
-            dias_restantes = "N/A"
-            estado = 'VIGENTE'
+            estado = 'EXTRAÍDO'
             
-            return DocumentoData(
-                tipo_documento='TI',
-                numero_documento=numero_documento,
-                nombres_apellidos=nombres_apellidos,
-                dia=dia,
-                mes=mes,
-                año=anio,
-                fecha_vigencia=fecha_vigencia,
-                dias_restantes=dias_restantes,
-                estado=estado,
-                archivo_origen=filename
-            )
+            return DocumentoData(tipo_documento='TI', numero_documento=numero_documento, nombres_apellidos=nombres_apellidos, dia=dia, mes=mes, año=anio, fecha_vigencia=fecha_vigencia, dias_restantes="N/A", estado=estado, archivo_origen=filename )
             
         except Exception as e:
             logger.error(f"Error extrayendo datos de TI: {e}")
@@ -173,32 +143,11 @@ class DocumentExtractor:
             if nombres_match:
                 nombres_apellidos = nombres_match.group(1).strip()
             
-            # Calcular fecha de vigencia (30 días después de la expedición)
-            fecha_expedicion = datetime(int(anio), MESES.get(mes, 1), int(dia))
-            fecha_vigencia = fecha_expedicion + timedelta(days=30)
+            # Solo extracción, sin cálculos de vencimiento
+            fecha_vigencia = None
+            estado = 'EXTRAÍDO'
             
-            # Calcular días restantes y estado
-            dias_restantes = (fecha_vigencia - datetime.now()).days
-            
-            if dias_restantes < 0:
-                estado = 'VENCIDO'
-            elif dias_restantes <= DIAS_ALERTA_VENCIMIENTO:
-                estado = 'POR VENCER'
-            else:
-                estado = 'VIGENTE'
-            
-            return DocumentoData(
-                tipo_documento='PPT',
-                numero_documento=numero_documento,
-                nombres_apellidos=nombres_apellidos,
-                dia=dia,
-                mes=mes,
-                año=anio,
-                fecha_vigencia=fecha_vigencia,
-                dias_restantes=dias_restantes,
-                estado=estado,
-                archivo_origen=filename
-            )
+            return DocumentoData(tipo_documento='PPT', numero_documento=numero_documento, nombres_apellidos=nombres_apellidos, dia=dia, mes=mes, año=anio, fecha_vigencia=fecha_vigencia, dias_restantes="N/A",estado=estado, archivo_origen=filename)
             
         except Exception as e:
             logger.error(f"Error extrayendo datos de PPT: {e}")
@@ -210,7 +159,6 @@ class DocumentExtractor:
             # Patrones de búsqueda para CE
             cedula_match = re.search(r'C[eé]dula de Extranjer[ií]a:\s*(\d+)', text, re.IGNORECASE)
             fecha_expedicion_match = re.search(r'Fecha de Expedici[oó]n:\s*(\d{4})/(\d{2})/(\d{2})', text, re.IGNORECASE)
-            fecha_vencimiento_match = re.search(r'Fecha de Vencimiento\s*(\d{4})/(\d{2})/(\d{2})', text, re.IGNORECASE)
             nombres_match = re.search(r'Nombres y Apellidos\s+([A-ZÁÉÍÓÚÑ\s]+)(?=\n|Fecha de Nacimiento)', text, re.IGNORECASE)
             
             if not cedula_match or not fecha_expedicion_match:
@@ -227,32 +175,11 @@ class DocumentExtractor:
             if nombres_match:
                 nombres_apellidos = nombres_match.group(1).strip()
             
-            # Calcular fecha de vigencia (30 días después de la expedición del certificado)
-            fecha_expedicion_cert = datetime.now()  # La fecha de expedición del certificado es la fecha actual
-            fecha_vigencia = fecha_expedicion_cert + timedelta(days=30)
+            # Solo extracción, sin cálculos de vencimiento
+            fecha_vigencia = None
+            estado = 'EXTRAÍDO'
             
-            # Calcular días restantes y estado
-            dias_restantes = (fecha_vigencia - datetime.now()).days
-            
-            if dias_restantes < 0:
-                estado = 'VENCIDO'
-            elif dias_restantes <= DIAS_ALERTA_VENCIMIENTO:
-                estado = 'POR VENCER'
-            else:
-                estado = 'VIGENTE'
-            
-            return DocumentoData(
-                tipo_documento='CE',
-                numero_documento=cedula,
-                nombres_apellidos=nombres_apellidos,
-                dia=dia,
-                mes=mes,
-                año=anio,
-                fecha_vigencia=fecha_vigencia,
-                dias_restantes=dias_restantes,
-                estado=estado,
-                archivo_origen=filename
-            )
+            return DocumentoData(tipo_documento='CE', numero_documento=cedula, nombres_apellidos=nombres_apellidos, dia=dia, mes=mes, año=anio, fecha_vigencia=fecha_vigencia, dias_restantes="N/A", estado=estado, archivo_origen=filename)
             
         except Exception as e:
             logger.error(f"Error extrayendo datos de CE: {e}")
@@ -261,7 +188,5 @@ class DocumentExtractor:
     def get_nombre_mes(self, numero_mes: int) -> str:
         """Convierte un número de mes a su nombre correspondiente"""
         meses = {
-            1: 'Enero', 2: 'Febrero', 3: 'Marzo', 4: 'Abril', 5: 'Mayo', 6: 'Junio',
-            7: 'Julio', 8: 'Agosto', 9: 'Septiembre', 10: 'Octubre', 11: 'Noviembre', 12: 'Diciembre'
-        }
-        return meses.get(numero_mes, 'Enero')
+            1: 'ENERO', 2: 'FEBRERO', 3: 'MARZO', 4: 'ABRIL', 5: 'MAYO', 6: 'JUNIO', 7: 'JULIO', 8: 'AGOSTO', 9: 'SEPTIEMBRE', 10: 'OCTUBRE', 11: 'NOVIEMBRE', 12: 'DICIEMBRE'}
+        return meses.get(numero_mes, 'ENERO')

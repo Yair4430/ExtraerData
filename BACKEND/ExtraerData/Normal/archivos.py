@@ -1,7 +1,4 @@
-import os
-import tempfile
-import shutil
-import zipfile
+import os, tempfile, shutil, zipfile
 from pathlib import Path
 from typing import List
 from .configuracion import RARFILE_AVAILABLE, logger
@@ -17,7 +14,6 @@ class FileProcessor:
         try:
             # Crear directorio temporal
             self.temp_dir = tempfile.mkdtemp(prefix="pdf_extractor_")
-            
             file_extension = os.path.splitext(file_path)[1].lower()
             
             if file_extension == '.zip':
