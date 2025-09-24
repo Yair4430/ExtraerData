@@ -1,10 +1,12 @@
-// NormalProcessor.jsx (versión estandarizada)
 import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import "./ProcessorStyles.css";
+import "./processorStyles.css";
 
 const MySwal = withReactContent(Swal);
+
+// Obtener la URL base desde las variables de entorno
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 function NormalProcessor() {
   const [ruta, setRuta] = useState("");
@@ -29,7 +31,7 @@ function NormalProcessor() {
     });
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/procesar", {
+      const response = await fetch(`${API_BASE_URL}/procesar`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ruta, ficha }),

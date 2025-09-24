@@ -1,7 +1,9 @@
-// MassiveProcessor.jsx (versión estandarizada)
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
-import "./ProcessorStyles.css";
+import "./processorStyles.css";
+
+// Obtener la URL base desde las variables de entorno
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL 
 
 function MassiveProcessor() {
   const [ruta, setRuta] = useState("");
@@ -38,7 +40,7 @@ function MassiveProcessor() {
     setProcessId(newProcessId);
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/procesar-masivo", {
+      const response = await fetch(`${API_BASE_URL}/procesar-masivo`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ruta, process_id: newProcessId }),
@@ -64,7 +66,7 @@ function MassiveProcessor() {
 
     const interval = setInterval(async () => {
       try {
-        const statusResponse = await fetch(`http://127.0.0.1:5000/procesar-masivo/status/${id}`);
+        const statusResponse = await fetch(`${API_BASE_URL}/procesar-masivo/status/${id}`);
         const statusData = await statusResponse.json();
 
         setStatus(statusData);
@@ -75,7 +77,7 @@ function MassiveProcessor() {
           setLoading(false);
           
           if (statusData.status === "completed") {
-            const resultResponse = await fetch(`http://127.0.0.1:5000/procesar-masivo/result/${id}`);
+            const resultResponse = await fetch(`${API_BASE_URL}/procesar-masivo/result/${id}`);
             const resultData = await resultResponse.json();
             setResult(resultData);
 
@@ -125,22 +127,6 @@ function MassiveProcessor() {
     setPollingInterval(interval);
   };
 
-  const cancelarProcesamiento = () => {
-    if (pollingInterval) {
-      clearInterval(pollingInterval);
-      setPollingInterval(null);
-    }
-    setLoading(false);
-    setStatus({ status: "cancelled" });
-    
-    Swal.fire({
-      icon: "info",
-      title: "Proceso cancelado",
-      text: "El procesamiento ha sido detenido.",
-      confirmButtonColor: '#4f46e5'
-    });
-  };
-
   useEffect(() => {
     return () => {
       if (pollingInterval) clearInterval(pollingInterval);
@@ -188,7 +174,6 @@ function MassiveProcessor() {
               "Iniciar Procesamiento"
             )}
           </button>
-          
         </div>
       </div>
     </div>
