@@ -1108,3 +1108,75 @@
 2025-09-24 15:08:19,667 - werkzeug - INFO -  * Restarting with stat
 2025-09-24 15:08:20,547 - werkzeug - WARNING -  * Debugger is active!
 2025-09-24 15:08:20,550 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-24 15:18:11,389 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-24 15:18:11,389 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-24 15:18:11,390 - werkzeug - INFO -  * Restarting with stat
+2025-09-24 15:18:12,326 - werkzeug - WARNING -  * Debugger is active!
+2025-09-24 15:18:12,328 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-26 08:32:26,847 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-26 08:32:26,848 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-26 08:32:26,849 - werkzeug - INFO -  * Restarting with stat
+2025-09-26 08:32:27,702 - werkzeug - WARNING -  * Debugger is active!
+2025-09-26 08:32:27,710 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-26 08:38:16,738 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-26 08:38:16,738 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-26 08:38:16,739 - werkzeug - INFO -  * Restarting with stat
+2025-09-26 08:38:17,735 - werkzeug - WARNING -  * Debugger is active!
+2025-09-26 08:38:17,737 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-26 08:44:11,106 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-26 08:44:11,106 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-26 08:44:11,107 - werkzeug - INFO -  * Restarting with stat
+2025-09-26 08:44:11,968 - werkzeug - WARNING -  * Debugger is active!
+2025-09-26 08:44:11,971 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-26 08:53:33,163 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-26 08:53:33,163 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-26 08:53:33,164 - werkzeug - INFO -  * Restarting with stat
+2025-09-26 08:53:34,049 - werkzeug - WARNING -  * Debugger is active!
+2025-09-26 08:53:34,051 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-26 09:12:56,913 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-26 09:12:56,913 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-26 09:12:56,915 - werkzeug - INFO -  * Restarting with stat
+2025-09-26 09:12:57,817 - werkzeug - WARNING -  * Debugger is active!
+2025-09-26 09:12:57,819 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-26 09:13:39,471 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-26 09:13:39,471 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-26 09:13:39,473 - werkzeug - INFO -  * Restarting with stat
+2025-09-26 09:13:40,520 - werkzeug - WARNING -  * Debugger is active!
+2025-09-26 09:13:40,524 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-26 09:31:25,996 - werkzeug - INFO - 127.0.0.1 - - [26/Sep/2025 09:31:25] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-09-26 09:31:25,999 - werkzeug - INFO - 127.0.0.1 - - [26/Sep/2025 09:31:25] "[31m[1mPOST /procesar-masivo HTTP/1.1[0m" 400 -
+2025-09-26 09:31:39,436 - werkzeug - INFO - 127.0.0.1 - - [26/Sep/2025 09:31:39] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-09-26 09:31:39,439 - werkzeug - INFO - 127.0.0.1 - - [26/Sep/2025 09:31:39] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-09-26 09:31:39,758 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Nueva carpeta.xlsx
+2025-09-26 09:31:39,867 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Nueva carpeta - copia.xlsx
+2025-09-26 09:31:39,880 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\general\excel_con_resultados.zip
+2025-09-26 09:31:41,461 - werkzeug - INFO - 127.0.0.1 - - [26/Sep/2025 09:31:41] "GET /procesar-masivo/status/massive_1758897099433_jykyvbgb3 HTTP/1.1" 200 -
+2025-09-26 09:31:41,471 - werkzeug - INFO - 127.0.0.1 - - [26/Sep/2025 09:31:41] "GET /procesar-masivo/result/massive_1758897099433_jykyvbgb3 HTTP/1.1" 200 -
+2025-09-26 10:03:31,656 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-26 10:03:31,656 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-26 10:03:31,658 - werkzeug - INFO -  * Restarting with stat
+2025-09-26 10:03:32,524 - werkzeug - WARNING -  * Debugger is active!
+2025-09-26 10:03:32,526 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-09-26 10:26:11,909 - werkzeug - INFO - 127.0.0.1 - - [26/Sep/2025 10:26:11] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-09-26 10:26:11,913 - werkzeug - INFO - 127.0.0.1 - - [26/Sep/2025 10:26:11] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-09-26 10:26:12,120 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Nueva carpeta.xlsx
+2025-09-26 10:26:12,208 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_Nueva carpeta - copia.xlsx
+2025-09-26 10:26:12,221 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\general\excel_con_resultados.zip
+2025-09-26 10:26:13,933 - werkzeug - INFO - 127.0.0.1 - - [26/Sep/2025 10:26:13] "GET /procesar-masivo/status/massive_1758900371905_v3a09ajn7 HTTP/1.1" 200 -
+2025-09-26 10:26:13,938 - werkzeug - INFO - 127.0.0.1 - - [26/Sep/2025 10:26:13] "GET /procesar-masivo/result/massive_1758900371905_v3a09ajn7 HTTP/1.1" 200 -
+2025-09-26 10:52:53,434 - werkzeug - INFO - 127.0.0.1 - - [26/Sep/2025 10:52:53] "OPTIONS /procesar HTTP/1.1" 200 -
+2025-09-26 10:52:53,437 - werkzeug - INFO - 127.0.0.1 - - [26/Sep/2025 10:52:53] "[31m[1mPOST /procesar HTTP/1.1[0m" 400 -
+2025-09-26 10:55:54,225 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-09-26 10:55:54,226 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-09-26 10:55:54,227 - werkzeug - INFO -  * Restarting with stat
+2025-09-26 10:55:55,373 - werkzeug - WARNING -  * Debugger is active!
+2025-09-26 10:55:55,377 - werkzeug - INFO -  * Debugger PIN: 523-577-626

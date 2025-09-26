@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { FaInfoCircle } from "react-icons/fa";
 import "./processorStyles.css";
 
 const MySwal = withReactContent(Swal);
 
-// Obtener la URL base desde las variables de entorno
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function NormalProcessor() {
   const [ruta, setRuta] = useState("");
@@ -14,6 +14,16 @@ function NormalProcessor() {
   const [loading, setLoading] = useState(false);
 
   const handleProcesar = async () => {
+    if (!API_BASE_URL) {
+      MySwal.fire({
+        icon: "error",
+        title: "Error de configuración",
+        text: "La URL del backend no está configurada",
+        confirmButtonColor: "#16a34a",
+      });
+      return;
+    }
+
     setLoading(true);
 
     MySwal.fire({
@@ -21,9 +31,9 @@ function NormalProcessor() {
       text: "Por favor espera mientras se procesan los documentos",
       allowOutsideClick: false,
       showConfirmButton: false,
-      background: '#f8fafc',
+      background: "#f8fafc",
       customClass: {
-        popup: 'custom-swal'
+        popup: "custom-swal",
       },
       didOpen: () => {
         Swal.showLoading();
@@ -33,14 +43,20 @@ function NormalProcessor() {
     try {
       const response = await fetch(`${API_BASE_URL}/procesar`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({ ruta, ficha }),
       });
 
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || `Error ${response.status}: ${response.statusText}`);
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Error ${response.status}: ${errorText}`);
+      }
 
-      // ✅ Mostrar resultado en SweetAlert2 y limpiar al aceptar
+      const data = await response.json();
+
       Swal.fire({
         icon: "success",
         title: "Procesamiento exitoso",
@@ -53,24 +69,24 @@ function NormalProcessor() {
             </div>
           </div>
         `,
-        confirmButtonColor: "#4f46e5",
+        confirmButtonColor: "#16a34a",
         customClass: {
-          popup: 'custom-swal'
-        }
+          popup: "custom-swal",
+        },
       }).then(() => {
-        // 🔄 Limpiar campos después de dar "Aceptar"
         setRuta("");
         setFicha("");
       });
     } catch (err) {
+      console.error("Error en la solicitud:", err);
       Swal.fire({
         icon: "error",
         title: "Error en el procesamiento",
         text: err.message,
-        confirmButtonColor: "#4f46e5",
+        confirmButtonColor: "#16a34a",
         customClass: {
-          popup: 'custom-swal'
-        }
+          popup: "custom-swal",
+        },
       });
     } finally {
       setLoading(false);
@@ -78,60 +94,43 @@ function NormalProcessor() {
   };
 
   return (
-    <div className="processor-container">
-      <div className="processor-header">
-        <h2>Procesamiento Individual</h2>
-        <p>Procesa carpetas o archivos ZIP con documentos PDF de forma individual</p>
+    <div className="card-container green-card">
+      <h2 className="card-title green">ExtraerData</h2>
+      <div className="card-icons">
+        <FaInfoCircle className="icon green" />
       </div>
 
-      <div className="processor-form">
-        <div className="form-group">
-          <label className="form-label">Ruta de la carpeta o zip:</label>
-          <div className="input-container">
-            <input
-              type="text"
-              value={ruta}
-              onChange={(e) => setRuta(e.target.value)}
-              placeholder="Ej: C:/Users/MiUsuario/Downloads/archivos.zip"
-              className="form-input"
-              disabled={loading}
-            />
-            <span className="input-icon">📁</span>
-          </div>
-        </div>
-
-        <div className="form-group">
-          <label className="form-label">Numero de ficha:</label>
-          <div className="input-container">
-            <input
-              type="text"
-              value={ficha}
-              onChange={(e) => setFicha(e.target.value)}
-              placeholder="Ej: 2671143"
-              className="form-input"
-              disabled={loading}
-            />
-            <span className="input-icon">🔢</span>
-          </div>
-        </div>
-
-        <div className="form-actions">
-          <button
-            onClick={handleProcesar}
-            disabled={loading || !ruta}
-            className="btn btn-primary"
-          >
-            {loading ? (
-              <>
-                <span className="spinner"></span>
-                Procesando...
-              </>
-            ) : (
-              "Iniciar Procesamiento"
-            )}
-          </button>
-        </div>
+      <div className="input-box">
+        <label className="input-label">Ruta de la carpeta o zip</label>
+        <input
+          type="text"
+          value={ruta}
+          onChange={(e) => setRuta(e.target.value)}
+          placeholder="Ej: C:/Users/MiUsuario/Downloads/archivos.zip"
+          className="input-field"
+          disabled={loading}
+        />
       </div>
+
+      <div className="input-box">
+        <label className="input-label">Número de ficha</label>
+        <input
+          type="text"
+          value={ficha}
+          onChange={(e) => setFicha(e.target.value)}
+          placeholder="Ej: 2671143"
+          className="input-field"
+          disabled={loading}
+        />
+      </div>
+
+      <button
+        onClick={handleProcesar}
+        disabled={loading || !ruta}
+        className="btn-green"
+      >
+        {loading ? "Procesando..." : "Iniciar Procesamiento"}
+      </button>
     </div>
   );
 }

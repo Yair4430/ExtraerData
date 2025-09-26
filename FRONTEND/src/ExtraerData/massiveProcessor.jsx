@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
+import { FaFolderOpen, FaInfoCircle } from "react-icons/fa";
 import "./processorStyles.css";
 
-// Obtener la URL base desde las variables de entorno
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function MassiveProcessor() {
   const [ruta, setRuta] = useState("");
@@ -30,10 +30,10 @@ function MassiveProcessor() {
       didOpen: () => {
         Swal.showLoading();
       },
-      background: '#f8fafc',
+      background: "#f8fafc",
       customClass: {
-        popup: 'custom-swal'
-      }
+        popup: "custom-swal",
+      },
     });
 
     const newProcessId = generateProcessId();
@@ -47,7 +47,10 @@ function MassiveProcessor() {
       });
 
       const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Error al iniciar el procesamiento masivo");
+      if (!response.ok)
+        throw new Error(
+          data.error || "Error al iniciar el procesamiento masivo"
+        );
 
       iniciarPolling(newProcessId);
     } catch (err) {
@@ -56,7 +59,7 @@ function MassiveProcessor() {
         icon: "error",
         title: "Error",
         text: err.message,
-        confirmButtonColor: '#4f46e5'
+        confirmButtonColor: "#16a34a",
       });
     }
   };
@@ -66,7 +69,9 @@ function MassiveProcessor() {
 
     const interval = setInterval(async () => {
       try {
-        const statusResponse = await fetch(`${API_BASE_URL}/procesar-masivo/status/${id}`);
+        const statusResponse = await fetch(
+          `${API_BASE_URL}/procesar-masivo/status/${id}`
+        );
         const statusData = await statusResponse.json();
 
         setStatus(statusData);
@@ -75,9 +80,11 @@ function MassiveProcessor() {
         if (["completed", "error", "cancelled"].includes(statusData.status)) {
           clearInterval(interval);
           setLoading(false);
-          
+
           if (statusData.status === "completed") {
-            const resultResponse = await fetch(`${API_BASE_URL}/procesar-masivo/result/${id}`);
+            const resultResponse = await fetch(
+              `${API_BASE_URL}/procesar-masivo/result/${id}`
+            );
             const resultData = await resultResponse.json();
             setResult(resultData);
 
@@ -85,12 +92,11 @@ function MassiveProcessor() {
               icon: "success",
               title: "Procesamiento completado",
               text: "Los resultados se guardan en la misma carpeta seleccionada.",
-              confirmButtonColor: '#4f46e5',
+              confirmButtonColor: "#16a34a",
               customClass: {
-                popup: 'custom-swal'
-              }
+                popup: "custom-swal",
+              },
             }).then(() => {
-              // 🔄 Resetear estados después de aceptar
               setRuta("");
               setProcessId("");
               setStatus(null);
@@ -102,14 +108,14 @@ function MassiveProcessor() {
               icon: "error",
               title: "Error en el procesamiento",
               text: statusData.message || "Ocurrió un error inesperado",
-              confirmButtonColor: '#4f46e5'
+              confirmButtonColor: "#16a34a",
             });
           } else if (statusData.status === "cancelled") {
             Swal.fire({
               icon: "info",
               title: "Proceso cancelado",
               text: "El procesamiento fue detenido.",
-              confirmButtonColor: '#4f46e5'
+              confirmButtonColor: "#16a34a",
             });
           }
         }
@@ -119,7 +125,7 @@ function MassiveProcessor() {
           icon: "error",
           title: "Error en conexión",
           text: "No se pudo obtener el estado del proceso",
-          confirmButtonColor: '#4f46e5'
+          confirmButtonColor: "#16a34a",
         });
       }
     }, 2000);
@@ -134,50 +140,37 @@ function MassiveProcessor() {
   }, [pollingInterval]);
 
   return (
-    <div className="processor-container">
-      <div className="processor-header">
-        <h2>Procesamiento Masivo</h2>
-        <p>Procesa carpetas o archivos ZIP con documentos PDF de forma masiva</p>
+    <div className="card-container">
+      <h2 className="card-title green">ExtraerData</h2>
+      <div className="card-icons">
+        <FaInfoCircle className="icon green" />
       </div>
 
-      <div className="processor-form">
-        <div className="form-group">
-          <label className="form-label">Ruta de la carpeta principal:</label>
-          <div className="input-container">
-            <input
-              type="text"
-              value={ruta}
-              onChange={(e) => setRuta(e.target.value)}
-              placeholder="Ej: C:/Users/MiUsuario/Downloads/carpeta_principal"
-              className="form-input"
-              disabled={loading}
-            />
-            <span className="input-icon">📂</span>
-          </div>
-          <p className="form-hint">
-            La carpeta debe contener subcarpetas o archivos ZIP con documentos PDF
-          </p>
+        <div className="input-box">
+          <label className="input-label">
+            <FaFolderOpen className="label-icon" />
+            Ruta de la carpeta principal
+          </label>
+          <input
+            type="text"
+            value={ruta}
+            onChange={(e) => setRuta(e.target.value)}
+            placeholder="Ingresa la ruta de la carpeta"
+            className="input-field"
+            disabled={loading}
+          />
         </div>
 
-        <div className="form-actions">
-          <button
-            onClick={iniciarProcesamiento}
-            disabled={loading || !ruta}
-            className="btn btn-primary"
-          >
-            {loading ? (
-              <>
-                <span className="spinner"></span>
-                Procesando...
-              </>
-            ) : (
-              "Iniciar Procesamiento"
-            )}
-          </button>
-        </div>
-      </div>
+      <button
+        onClick={iniciarProcesamiento}
+        disabled={loading || !ruta}
+        className="btn-green"
+      >
+        {loading ? "Procesando..." : "Iniciar Procesamiento"}
+      </button>
     </div>
   );
 }
 
 export default MassiveProcessor;
+ 
