@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { FaInfoCircle } from "react-icons/fa";
+import { FaInfoCircle, FaFolderOpen, FaHashtag } from "react-icons/fa"; // <-- Agregamos más íconos
 import "./processorStyles.css";
 
 const MySwal = withReactContent(Swal);
@@ -101,24 +101,30 @@ function NormalProcessor() {
       </div>
 
       <div className="input-box">
-        <label className="input-label">Ruta de la carpeta o zip</label>
+        <label className="input-label">
+          <FaFolderOpen className="label-icon green" />
+          Ruta de la carpeta o zip
+        </label>
         <input
           type="text"
           value={ruta}
           onChange={(e) => setRuta(e.target.value)}
-          placeholder="Ej: C:/Users/MiUsuario/Downloads/archivos.zip"
+          placeholder="Ingresa la ruta de la carpeta"
           className="input-field"
           disabled={loading}
         />
       </div>
 
       <div className="input-box">
-        <label className="input-label">Número de ficha</label>
+        <label className="input-label">
+          <FaHashtag className="label-icon green" />
+          Número de ficha
+        </label>
         <input
           type="text"
           value={ficha}
           onChange={(e) => setFicha(e.target.value)}
-          placeholder="Ej: 2671143"
+          placeholder="Ingresa el numero de la ficha"
           className="input-field"
           disabled={loading}
         />
