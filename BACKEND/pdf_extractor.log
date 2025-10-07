@@ -1583,3 +1583,9 @@
 2025-10-07 09:50:15,249 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\prueba_extradata\excel_con_resultados.zip
 2025-10-07 09:50:16,969 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2025 09:50:16] "GET /procesar-masivo/status/massive_1759848614956_3m8gdzpjr HTTP/1.1" 200 -
 2025-10-07 09:50:16,973 - werkzeug - INFO - 127.0.0.1 - - [07/Oct/2025 09:50:16] "GET /procesar-masivo/result/massive_1759848614956_3m8gdzpjr HTTP/1.1" 200 -
+2025-10-07 11:08:42,738 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-10-07 11:08:42,739 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-07 11:08:42,740 - werkzeug - INFO -  * Restarting with stat
+2025-10-07 11:08:43,674 - werkzeug - WARNING -  * Debugger is active!
+2025-10-07 11:08:43,676 - werkzeug - INFO -  * Debugger PIN: 523-577-626

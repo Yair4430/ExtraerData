@@ -11,128 +11,154 @@ html, body {
   width: 100%;
   margin: 0;
   display: flex;
-  justify-content: center;   /* centra horizontal */
-  align-items: flex-start;   /* pone el card un poco abajo (como en la imagen) */
-  padding-top: 64px;         /* ajusta la separación superior (toggle encima) */
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px;
   background: #f9fafb;
 }
 
 /* opcional: si tu App tiene un wrapper, puedes usar .page-wrapper en lugar de tocar body */
 .page-wrapper {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:20px;
-  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* ===== Contenedor principal (card) ===== */
+/* ===== Contenedor principal (card) - TAMAÑO MEDIO ===== */
 .card-container {
   background: #ffffff;
   border-radius: 16px;
-  padding: 36px 36px;
-  width: 420px;          /* ancho fijo tipo aside (ajustable) */
-  max-width: 92%;        /* responsive en pantallas pequeñas */
+  padding: 35px 40px;
+  width: 480px;
+  max-width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;   /* centra contenido interior */
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  align-items: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   text-align: center;
 }
 
 /* Animación suave */
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
+  from { opacity: 0; transform: scale(0.98); }
   to { opacity: 1; transform: scale(1); }
 }
 
-/* ===== Título ===== */
+/* ===== Título - FUENTE ESPECIAL ===== */
 .card-title {
-  font-size: 1.9rem;
-  margin-bottom: 12px;
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  font-weight: 700;
+  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* ===== Íconos ===== */
+/* Para el título morado en MassiveProcessor */
+.purple-card .card-title.purple-title {
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Íconos - TAMAÑO MEDIO ===== */
 .card-icons {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 18px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 .icon {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   color: #8b5cf6;
 }
 
-/* ===== Caja de input ===== */
+/* ===== Caja de input - TAMAÑO MEDIO ===== */
 .input-box {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: #f9fafb; /* gris claro */
+  background: #f9fafb;
   border: 1px solid #e6edf1;
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 18px 20px;
   margin-bottom: 20px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
   text-align: left;
 }
 
-/* ===== Label con ícono ===== */
+/* ===== Label con ícono - MÁS GRANDE ===== */
 .input-label {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.98rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #0f172a;
+  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .label-icon {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: #8b5cf6;
 }
 
-/* ===== Input ===== */
+/* ===== Input - TAMAÑO MEDIO ===== */
 .input-field {
   width: 100%;
-  padding: 12px 14px;
+  padding: 10px 10px;
   border: 1px solid #d6e0e7;
   border-radius: 10px;
-  font-size: 0.98rem;
+  font-size: 1rem;
   outline: none;
-  box-sizing: border-box;   /* importante para que width:100% funcione */
+  box-sizing: border-box;
   background: #fbfdfe;
   transition: box-shadow .15s, border .15s;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.input-field::placeholder { color: #9aa6ad; }
+.input-field::placeholder { 
+  color: #9aa6ad;
+  font-size: 0.95rem;
+}
 
 .input-field:focus {
   border-color: #16a34a;
-  box-shadow: 0 0 0 5px rgba(22,163,74,0.06);
+  box-shadow: 0 0 0 3px rgba(22,163,74,0.08);
   background: #fff;
 }
 
-/* ===== Botón ===== */
+/* ===== Botón - TAMAÑO MEDIO ===== */
 .btn-green {
   width: 100%;
-  padding: 12px 18px;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 1rem;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
   cursor: pointer;
   border: none;
   background: #16a34a;
   color: #fff;
   transition: background .2s, transform .12s;
-  margin-top: 6px;
+  margin-top: 8px;
+  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.btn-green:hover { transform: translateY(-2px); background: #15803d; }
+.btn-green:hover { 
+  transform: translateY(-2px);
+  background: #15803d; 
+}
 
 .btn-green:disabled {
   background: #8b5cf6;
@@ -141,7 +167,10 @@ html, body {
 
 /* ===== Verde (NormalProcessor) ===== */
 .green-card .card-title {
-  color: #16a34a;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .green-card .icon {
@@ -154,7 +183,7 @@ html, body {
 
 .green-card .input-field:focus {
   border-color: #16a34a;
-  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
 }
 
 .green-card .btn-green {
@@ -163,8 +192,8 @@ html, body {
   font-weight: 600;
   border: none;
   border-radius: 12px;
-  padding: 12px 20px;
-  font-size: 1rem;
+  padding: 14px 20px;
+  font-size: 1.1rem;
   width: 100%;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
@@ -194,7 +223,10 @@ html, body {
 
 /* ===== Estilos para NormalProcessor (Verde) ===== */
 .green-card .card-title.green-title {
-  color: #16a34a;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .green-card .icon.green {
@@ -207,7 +239,7 @@ html, body {
 
 .green-card .input-field:focus {
   border-color: #16a34a;
-  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
 }
 
 .green-card .btn-green {
@@ -216,8 +248,8 @@ html, body {
   font-weight: 600;
   border: none;
   border-radius: 12px;
-  padding: 12px 20px;
-  font-size: 1rem;
+  padding: 14px 20px;
+  font-size: 1.1rem;
   width: 100%;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
@@ -235,7 +267,10 @@ html, body {
 
 /* ===== Estilos para MassiveProcessor (Lila - #8b5cf6) ===== */
 .purple-card .card-title.purple-title {
-  color: #8b5cf6;
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .purple-card .icon.purple {
@@ -248,7 +283,7 @@ html, body {
 
 .purple-card .input-field:focus {
   border-color: #8b5cf6;
-  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
 }
 
 .purple-card .btn-purple {
@@ -257,11 +292,12 @@ html, body {
   font-weight: 600;
   border: none;
   border-radius: 12px;
-  padding: 12px 20px;
-  font-size: 1rem;
+  padding: 14px 20px;
+  font-size: 1.1rem;
   width: 100%;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
+  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .purple-card .btn-purple:hover {
