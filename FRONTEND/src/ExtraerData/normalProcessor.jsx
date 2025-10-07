@@ -1,11 +1,10 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { FaInfoCircle, FaFolderOpen, FaHashtag } from "react-icons/fa"; // <-- Agregamos más íconos
+import { FaInfoCircle, FaFolderOpen, FaHashtag } from "react-icons/fa";
 import "./processorStyles.css";
 
 const MySwal = withReactContent(Swal);
-
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function NormalProcessor() {
@@ -24,21 +23,28 @@ function NormalProcessor() {
       return;
     }
 
-    setLoading(true);
+    if (!ruta) {
+      MySwal.fire({
+        icon: "warning",
+        title: "Ruta no encontrada",
+        text: "Por favor, ingresa una ruta válida antes de continuar.",
+        confirmButtonColor: "#16a34a",
+      });
+      return;
+    }
 
-    MySwal.fire({
-      title: "Procesando...",
-      text: "Por favor espera mientras se procesan los documentos",
-      allowOutsideClick: false,
-      showConfirmButton: false,
-      background: "#f8fafc",
+    await MySwal.fire({
+      icon: "success",
+      title: "Carpeta encontrada",
+      text: `La carpeta se detectó exitosamente. Presiona Aceptar para iniciar el proceso.`,
+      confirmButtonText: "Aceptar",
+      confirmButtonColor: "#16a34a",
       customClass: {
         popup: "custom-swal",
       },
-      didOpen: () => {
-        Swal.showLoading();
-      },
     });
+
+    setLoading(true);
 
     try {
       const response = await fetch(`${API_BASE_URL}/procesar`, {
@@ -59,16 +65,8 @@ function NormalProcessor() {
 
       Swal.fire({
         icon: "success",
-        title: "Procesamiento exitoso",
-        html: `
-          <div class="result-display">
-            <p>${data.message}</p>
-            <div class="result-details">
-              <p><strong>Documentos procesados:</strong> ${data.documentos_procesados}</p>
-              <p><strong>Excel generado en:</strong> ${data.excel_path}</p>
-            </div>
-          </div>
-        `,
+        title: "Procesamiento completado",
+        text: "Los resultados se guardan en descargas del dispositivo.",
         confirmButtonColor: "#16a34a",
         customClass: {
           popup: "custom-swal",
@@ -95,7 +93,7 @@ function NormalProcessor() {
 
   return (
     <div className="card-container green-card">
-      <h2 className="card-title green">ExtraerData</h2>
+      <h2 className="card-title green-title">ExtraerData</h2>
       <div className="card-icons">
         <FaInfoCircle className="icon green" />
       </div>
@@ -124,7 +122,7 @@ function NormalProcessor() {
           type="text"
           value={ficha}
           onChange={(e) => setFicha(e.target.value)}
-          placeholder="Ingresa el numero de la ficha"
+          placeholder="Ingresa el número de la ficha"
           className="input-field"
           disabled={loading}
         />
@@ -133,7 +131,7 @@ function NormalProcessor() {
       <button
         onClick={handleProcesar}
         disabled={loading || !ruta}
-        className="btn-green"
+        className={`btn-green ${loading ? "btn-processing" : ""}`}
       >
         {loading ? "Procesando..." : "Iniciar Procesamiento"}
       </button>

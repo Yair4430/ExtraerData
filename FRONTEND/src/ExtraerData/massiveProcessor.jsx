@@ -18,23 +18,43 @@ function MassiveProcessor() {
     `massive_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
   const iniciarProcesamiento = async () => {
-    setLoading(true);
-    setStatus(null);
-    setProgress(0);
-    setResult(null);
+    if (!API_BASE_URL) {
+      Swal.fire({
+        icon: "error",
+        title: "Error de configuración",
+        text: "La URL del backend no está configurada.",
+        confirmButtonColor: "#7c3aed",
+      });
+      return;
+    }
 
-    Swal.fire({
-      title: "Iniciando procesamiento...",
-      text: "Por favor espera mientras se validan los archivos",
-      allowOutsideClick: false,
-      didOpen: () => {
-        Swal.showLoading();
-      },
-      background: "#f8fafc",
+    if (!ruta) {
+      Swal.fire({
+        icon: "warning",
+        title: "Ruta no encontrada",
+        text: "Por favor, ingresa una ruta válida antes de continuar.",
+        confirmButtonColor: "#7c3aed",
+      });
+      return;
+    }
+
+    // ✅ Alerta previa: muestra la ruta y espera confirmación del usuario
+    await Swal.fire({
+      icon: "success",
+      title: "Carpeta encontrada",
+      text: `La carpeta se detectó exitosamente. Presiona Aceptar para iniciar el proceso.`,
+      confirmButtonText: "Aceptar",
+      confirmButtonColor: "#7c3aed",
       customClass: {
         popup: "custom-swal",
       },
     });
+
+    // Solo después de que el usuario presione "Aceptar" inicia el procesamiento
+    setLoading(true);
+    setStatus(null);
+    setProgress(0);
+    setResult(null);
 
     const newProcessId = generateProcessId();
     setProcessId(newProcessId);
@@ -59,7 +79,7 @@ function MassiveProcessor() {
         icon: "error",
         title: "Error",
         text: err.message,
-        confirmButtonColor: "#16a34a",
+        confirmButtonColor: "#7c3aed",
       });
     }
   };
@@ -92,7 +112,7 @@ function MassiveProcessor() {
               icon: "success",
               title: "Procesamiento completado",
               text: "Los resultados se guardan en la misma carpeta seleccionada.",
-              confirmButtonColor: "#16a34a",
+              confirmButtonColor: "#7c3aed",
               customClass: {
                 popup: "custom-swal",
               },
@@ -108,14 +128,14 @@ function MassiveProcessor() {
               icon: "error",
               title: "Error en el procesamiento",
               text: statusData.message || "Ocurrió un error inesperado",
-              confirmButtonColor: "#16a34a",
+              confirmButtonColor: "#7c3aed",
             });
           } else if (statusData.status === "cancelled") {
             Swal.fire({
               icon: "info",
               title: "Proceso cancelado",
               text: "El procesamiento fue detenido.",
-              confirmButtonColor: "#16a34a",
+              confirmButtonColor: "#7c3aed",
             });
           }
         }
@@ -125,7 +145,7 @@ function MassiveProcessor() {
           icon: "error",
           title: "Error en conexión",
           text: "No se pudo obtener el estado del proceso",
-          confirmButtonColor: "#16a34a",
+          confirmButtonColor: "#7c3aed",
         });
       }
     }, 2000);
@@ -140,37 +160,37 @@ function MassiveProcessor() {
   }, [pollingInterval]);
 
   return (
-    <div className="card-container">
-      <h2 className="card-title green">ExtraerData</h2>
+    <div className="card-container purple-card">
+      <h2 className="card-title purple-title">ExtraerData</h2>
       <div className="card-icons">
-        <FaInfoCircle className="icon green" />
+        <FaInfoCircle className="icon purple" />
       </div>
 
-        <div className="input-box">
-          <label className="input-label">
-            <FaFolderOpen className="label-icon" />
-            Ruta de la carpeta principal
-          </label>
-          <input
-            type="text"
-            value={ruta}
-            onChange={(e) => setRuta(e.target.value)}
-            placeholder="Ingresa la ruta de la carpeta"
-            className="input-field"
-            disabled={loading}
-          />
-        </div>
+      <div className="input-box">
+        <label className="input-label">
+          <FaFolderOpen className="label-icon purple" />
+          Ruta de la carpeta principal
+        </label>
+        <input
+          type="text"
+          value={ruta}
+          onChange={(e) => setRuta(e.target.value)}
+          placeholder="Ingresa la ruta de la carpeta"
+          className="input-field"
+          disabled={loading}
+        />
+      </div>
 
       <button
         onClick={iniciarProcesamiento}
         disabled={loading || !ruta}
-        className="btn-green"
+        className={`btn-purple ${loading ? "btn-processing" : ""}`}
       >
         {loading ? "Procesando..." : "Iniciar Procesamiento"}
       </button>
+
     </div>
   );
 }
 
 export default MassiveProcessor;
- 
