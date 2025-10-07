@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { FaFolderOpen, FaInfoCircle } from "react-icons/fa";
-import "./processorStyles.css";
+import InfoModalMasivo from "./infoModalMasivo";
+import "../processorStyles.css";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -13,6 +14,17 @@ function MassiveProcessor() {
   const [progress, setProgress] = useState(0);
   const [result, setResult] = useState(null);
   const [pollingInterval, setPollingInterval] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar el modal
+
+  // Función para abrir el modal
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  // Función para cerrar el modal
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   const generateProcessId = () =>
     `massive_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
@@ -160,36 +172,49 @@ function MassiveProcessor() {
   }, [pollingInterval]);
 
   return (
-    <div className="card-container purple-card">
-      <h2 className="card-title purple-title">ExtraerData</h2>
-      <div className="card-icons">
-        <FaInfoCircle className="icon purple" />
+    <>
+      <div className="card-container purple-card">
+        <h2 className="card-title purple-title">ExtraerData</h2>
+        <div className="card-icons">
+          {/* Cambiar el ícono para que sea clickable y abra el modal */}
+          <FaInfoCircle 
+            className="icon purple clickable-icon" 
+            onClick={handleOpenModal}
+            title="¿Cómo funciona el procesamiento masivo?"
+          />
+        </div>
+
+        <div className="input-box">
+          <label className="input-label">
+            <FaFolderOpen className="label-icon purple" />
+            Ruta de la carpeta principal
+          </label>
+          <input
+            type="text"
+            value={ruta}
+            onChange={(e) => setRuta(e.target.value)}
+            placeholder="Ingresa la ruta de la carpeta"
+            className="input-field"
+            disabled={loading}
+          />
+        </div>
+
+        <button
+          onClick={iniciarProcesamiento}
+          disabled={loading || !ruta}
+          className={`btn-purple ${loading ? "btn-processing" : ""}`}
+        >
+          {loading ? "Procesando..." : "Iniciar Procesamiento"}
+        </button>
+
       </div>
 
-      <div className="input-box">
-        <label className="input-label">
-          <FaFolderOpen className="label-icon purple" />
-          Ruta de la carpeta principal
-        </label>
-        <input
-          type="text"
-          value={ruta}
-          onChange={(e) => setRuta(e.target.value)}
-          placeholder="Ingresa la ruta de la carpeta"
-          className="input-field"
-          disabled={loading}
-        />
-      </div>
-
-      <button
-        onClick={iniciarProcesamiento}
-        disabled={loading || !ruta}
-        className={`btn-purple ${loading ? "btn-processing" : ""}`}
-      >
-        {loading ? "Procesando..." : "Iniciar Procesamiento"}
-      </button>
-
-    </div>
+      {/* Renderizar el modal */}
+      <InfoModalMasivo 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+      />
+    </>
   );
 }
 

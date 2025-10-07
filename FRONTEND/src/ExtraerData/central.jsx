@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import MassiveProcessor from "./MassiveProcessor"
-import NormalProcessor from "./normalProcessor"
+import MassiveProcessor from "./Masivo/massiveProcessor"
+import NormalProcessor from "./Normal/normalProcessor"
 import "./central.css"
 
 function Central() {

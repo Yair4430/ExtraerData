@@ -1,0 +1,386 @@
+/* ===== Modal Overlay ===== */
+.masivo-modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* ===== Modal Content ===== */
+.masivo-modalContent {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 850px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: masivo-modalAppear 0.3s ease-out;
+}
+
+@keyframes masivo-modalAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ===== Header ===== */
+.masivo-modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.masivo-modalTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #8b5cf6;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+}
+
+.masivo-modalIcon {
+  font-size: 1.8rem;
+  color: #8b5cf6;
+}
+
+.masivo-closeButton {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  color: #64748b;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: all 0.2s ease;
+}
+
+.masivo-closeButton:hover {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+}
+
+/* ===== Body Sections ===== */
+.masivo-modalBody {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.masivo-infoSection {
+  border-left: 4px solid #8b5cf6;
+  padding-left: 20px;
+  background: #faf7ff;
+  border-radius: 0 12px 12px 0;
+  padding: 20px;
+}
+
+.masivo-sectionHeader {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.masivo-stepIcon {
+  color: #8b5cf6;
+  font-size: 1.2rem;
+}
+
+/* ===== Structure Types ===== */
+.masivo-structureTypes {
+  display: grid;
+  gap: 12px;
+}
+
+.masivo-structureItem {
+  padding: 14px 16px;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.masivo-structureItem strong {
+  color: #8b5cf6;
+}
+
+/* ===== Process Steps ===== */
+.masivo-processSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.masivo-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s ease;
+}
+
+.masivo-step:hover {
+  transform: translateX(5px);
+  border-color: #8b5cf6;
+}
+
+.masivo-stepNumber {
+  background: #8b5cf6;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 8px 14px;
+  min-width: 36px;
+  text-align: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.masivo-stepContent {
+  flex: 1;
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.5;
+}
+
+/* ===== Document Types ===== */
+.masivo-documentTypes {
+  display: grid;
+  gap: 10px;
+}
+
+.masivo-docType {
+  padding: 12px 16px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.masivo-docType strong {
+  color: #8b5cf6;
+  min-width: 50px;
+  display: inline-block;
+}
+
+/* ===== Data Extracted ===== */
+.masivo-dataExtracted {
+  display: grid;
+  gap: 8px;
+}
+
+.masivo-dataItem {
+  padding: 10px 12px;
+  background: white;
+  border-radius: 8px;
+  border-left: 3px solid #8b5cf6;
+  font-size: 0.95rem;
+}
+
+/* ===== Results Section ===== */
+.masivo-resultSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.masivo-resultItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.masivo-resultIcon {
+  color: #8b5cf6;
+  font-size: 1.2rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* ===== Progress Info ===== */
+.masivo-progressInfo {
+  display: grid;
+  gap: 12px;
+}
+
+.masivo-progressItem {
+  padding: 14px 16px;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.masivo-progressItem strong {
+  color: #8b5cf6;
+}
+
+/* ===== Instructions ===== */
+.masivo-instructionList {
+  padding-left: 24px;
+  margin: 0;
+  color: #374151;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.masivo-instructionList li {
+  margin-bottom: 10px;
+  padding-left: 8px;
+}
+
+.masivo-instructionList li:last-child {
+  margin-bottom: 0;
+}
+
+.masivo-instructionList strong {
+  color: #8b5cf6;
+}
+
+.masivo-instructionList code {
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #1e293b;
+}
+
+/* ===== Supported Formats ===== */
+.masivo-supportedFormats {
+  display: grid;
+  gap: 12px;
+}
+
+.masivo-formatItem {
+  padding: 14px 16px;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.masivo-formatItem strong {
+  color: #8b5cf6;
+}
+
+/* ===== Example Structure ===== */
+.masivo-exampleStructure {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+}
+
+.masivo-structureCode {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0 0 15px 0;
+  white-space: pre-wrap;
+  color: #e2e8f0;
+}
+
+.masivo-exampleText {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.masivo-exampleText strong {
+  color: #8b5cf6;
+}
+
+/* ===== Warnings ===== */
+.masivo-warningSection {
+  background: #fff7ed;
+  border: 2px solid #fdba74;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.masivo-warningTitle {
+  font-weight: 700;
+  color: #ea580c;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.masivo-warningList {
+  margin: 0;
+  padding-left: 20px;
+  color: #9a3412;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.masivo-warningList li {
+  margin-bottom: 6px;
+}
+
+.masivo-warningList li:last-child {
+  margin-bottom: 0;
+}
+
+.masivo-warningList strong {
+  color: #ea580c;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .masivo-modalContent {
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  .masivo-modalTitle {
+    font-size: 1.4rem;
+  }
+  
+  .masivo-sectionHeader {
+    font-size: 1.1rem;
+  }
+  
+  .masivo-step {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .masivo-stepNumber {
+    align-self: flex-start;
+  }
+  
+  .masivo-structureCode {
+    font-size: 0.75rem;
+  }
+}

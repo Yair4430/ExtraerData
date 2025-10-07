@@ -2,7 +2,8 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { FaInfoCircle, FaFolderOpen, FaHashtag } from "react-icons/fa";
-import "./processorStyles.css";
+import InfoModalNormal from "./infoModalNormal"; // Ajusta la ruta según tu estructura
+import "../processorStyles.css";
 
 const MySwal = withReactContent(Swal);
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -11,6 +12,17 @@ function NormalProcessor() {
   const [ruta, setRuta] = useState("");
   const [ficha, setFicha] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar el modal
+
+  // Función para abrir el modal
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  // Función para cerrar el modal
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   const handleProcesar = async () => {
     if (!API_BASE_URL) {
@@ -92,50 +104,63 @@ function NormalProcessor() {
   };
 
   return (
-    <div className="card-container green-card">
-      <h2 className="card-title green-title">ExtraerData</h2>
-      <div className="card-icons">
-        <FaInfoCircle className="icon green" />
+    <>
+      <div className="card-container green-card">
+        <h2 className="card-title green-title">ExtraerData</h2>
+        <div className="card-icons">
+          {/* Cambiar el ícono para que sea clickable y abra el modal */}
+          <FaInfoCircle 
+            className="icon green clickable-icon" 
+            onClick={handleOpenModal}
+            title="¿Cómo funciona?"
+          />
+        </div>
+
+        <div className="input-box">
+          <label className="input-label">
+            <FaFolderOpen className="label-icon green" />
+            Ruta de la carpeta o zip
+          </label>
+          <input
+            type="text"
+            value={ruta}
+            onChange={(e) => setRuta(e.target.value)}
+            placeholder="Ingresa la ruta de la carpeta"
+            className="input-field"
+            disabled={loading}
+          />
+        </div>
+
+        <div className="input-box">
+          <label className="input-label">
+            <FaHashtag className="label-icon green" />
+            Número de ficha
+          </label>
+          <input
+            type="text"
+            value={ficha}
+            onChange={(e) => setFicha(e.target.value)}
+            placeholder="Ingresa el número de la ficha"
+            className="input-field"
+            disabled={loading}
+          />
+        </div>
+
+        <button
+          onClick={handleProcesar}
+          disabled={loading || !ruta}
+          className={`btn-green ${loading ? "btn-processing" : ""}`}
+        >
+          {loading ? "Procesando..." : "Iniciar Procesamiento"}
+        </button>
       </div>
 
-      <div className="input-box">
-        <label className="input-label">
-          <FaFolderOpen className="label-icon green" />
-          Ruta de la carpeta o zip
-        </label>
-        <input
-          type="text"
-          value={ruta}
-          onChange={(e) => setRuta(e.target.value)}
-          placeholder="Ingresa la ruta de la carpeta"
-          className="input-field"
-          disabled={loading}
-        />
-      </div>
-
-      <div className="input-box">
-        <label className="input-label">
-          <FaHashtag className="label-icon green" />
-          Número de ficha
-        </label>
-        <input
-          type="text"
-          value={ficha}
-          onChange={(e) => setFicha(e.target.value)}
-          placeholder="Ingresa el número de la ficha"
-          className="input-field"
-          disabled={loading}
-        />
-      </div>
-
-      <button
-        onClick={handleProcesar}
-        disabled={loading || !ruta}
-        className={`btn-green ${loading ? "btn-processing" : ""}`}
-      >
-        {loading ? "Procesando..." : "Iniciar Procesamiento"}
-      </button>
-    </div>
+      {/* Renderizar el modal */}
+      <InfoModalNormal 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+      />
+    </>
   );
 }
 
