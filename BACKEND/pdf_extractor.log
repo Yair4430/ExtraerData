@@ -1595,3 +1595,422 @@
 2025-10-07 11:28:43,408 - werkzeug - INFO -  * Restarting with stat
 2025-10-07 11:28:44,340 - werkzeug - WARNING -  * Debugger is active!
 2025-10-07 11:28:44,344 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-10-09 09:46:02,944 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-10-09 09:46:02,944 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-09 09:46:02,946 - werkzeug - INFO -  * Restarting with stat
+2025-10-09 09:46:03,873 - werkzeug - WARNING -  * Debugger is active!
+2025-10-09 09:46:03,879 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-10-09 09:46:15,614 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:15] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-10-09 09:46:15,618 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:15] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-10-09 09:46:15,911 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3337129.xlsx
+2025-10-09 09:46:15,937 - pdf_extractor - INFO - Extraídos 22 archivos PDF del ZIP
+2025-10-09 09:46:16,987 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3292072.xlsx
+2025-10-09 09:46:16,992 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:17,018 - pdf_extractor - INFO - Extraídos 25 archivos PDF del ZIP
+2025-10-09 09:46:17,638 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:17] "GET /procesar-masivo/status/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 09:46:18,220 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3294201.xlsx
+2025-10-09 09:46:18,224 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:18,251 - pdf_extractor - INFO - Extraídos 22 archivos PDF del ZIP
+2025-10-09 09:46:19,314 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3294210.xlsx
+2025-10-09 09:46:19,318 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:19,352 - pdf_extractor - INFO - Extraídos 35 archivos PDF del ZIP
+2025-10-09 09:46:19,652 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:19] "GET /procesar-masivo/status/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 09:46:20,975 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3299669.xlsx
+2025-10-09 09:46:20,982 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:21,017 - pdf_extractor - INFO - Extraídos 33 archivos PDF del ZIP
+2025-10-09 09:46:21,705 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:21] "GET /procesar-masivo/status/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 09:46:22,553 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3299670.xlsx
+2025-10-09 09:46:22,560 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:22,584 - pdf_extractor - INFO - Extraídos 15 archivos PDF del ZIP
+2025-10-09 09:46:23,447 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3301951.xlsx
+2025-10-09 09:46:23,449 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:23,470 - pdf_extractor - INFO - Extraídos 10 archivos PDF del ZIP
+2025-10-09 09:46:23,725 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:23] "GET /procesar-masivo/status/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 09:46:23,965 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3302288.xlsx
+2025-10-09 09:46:23,967 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:23,986 - pdf_extractor - INFO - Extraídos 10 archivos PDF del ZIP
+2025-10-09 09:46:24,506 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3302291.xlsx
+2025-10-09 09:46:24,508 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:24,527 - pdf_extractor - INFO - Extraídos 10 archivos PDF del ZIP
+2025-10-09 09:46:25,008 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3302297.xlsx
+2025-10-09 09:46:25,010 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:25,014 - pdf_extractor - INFO - Extraídos 8 archivos PDF del ZIP
+2025-10-09 09:46:25,429 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3303706.xlsx
+2025-10-09 09:46:25,431 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:25,455 - pdf_extractor - INFO - Extraídos 20 archivos PDF del ZIP
+2025-10-09 09:46:25,754 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:25] "GET /procesar-masivo/status/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 09:46:26,429 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3303719.xlsx
+2025-10-09 09:46:26,432 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:26,455 - pdf_extractor - INFO - Extraídos 17 archivos PDF del ZIP
+2025-10-09 09:46:27,300 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3305623.xlsx
+2025-10-09 09:46:27,303 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:27,319 - pdf_extractor - INFO - Extraídos 2 archivos PDF del ZIP
+2025-10-09 09:46:27,479 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3307522.xlsx
+2025-10-09 09:46:27,480 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:27,493 - pdf_extractor - INFO - Extraídos 23 archivos PDF del ZIP
+2025-10-09 09:46:27,792 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:27] "GET /procesar-masivo/status/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 09:46:28,546 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3307984.xlsx
+2025-10-09 09:46:28,551 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:28,574 - pdf_extractor - INFO - Extraídos 19 archivos PDF del ZIP
+2025-10-09 09:46:29,500 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3317216.xlsx
+2025-10-09 09:46:29,504 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:29,526 - pdf_extractor - INFO - Extraídos 13 archivos PDF del ZIP
+2025-10-09 09:46:29,783 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:29] "GET /procesar-masivo/status/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 09:46:30,204 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3321629.xlsx
+2025-10-09 09:46:30,208 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:30,235 - pdf_extractor - INFO - Extraídos 25 archivos PDF del ZIP
+2025-10-09 09:46:31,427 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3321632.xlsx
+2025-10-09 09:46:31,431 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:31,458 - pdf_extractor - INFO - Extraídos 21 archivos PDF del ZIP
+2025-10-09 09:46:31,799 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:31] "GET /procesar-masivo/status/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 09:46:32,431 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3321670.xlsx
+2025-10-09 09:46:32,435 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:32,463 - pdf_extractor - INFO - Extraídos 28 archivos PDF del ZIP
+2025-10-09 09:46:33,776 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3322819.xlsx
+2025-10-09 09:46:33,781 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:33,805 - pdf_extractor - INFO - Extraídos 21 archivos PDF del ZIP
+2025-10-09 09:46:33,812 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:33] "GET /procesar-masivo/status/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 09:46:34,822 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3322844.xlsx
+2025-10-09 09:46:34,826 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:34,835 - pdf_extractor - INFO - Extraídos 18 archivos PDF del ZIP
+2025-10-09 09:46:35,720 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3322958.xlsx
+2025-10-09 09:46:35,723 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:35,746 - pdf_extractor - INFO - Extraídos 16 archivos PDF del ZIP
+2025-10-09 09:46:35,834 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:35] "GET /procesar-masivo/status/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 09:46:36,494 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3325123.xlsx
+2025-10-09 09:46:36,497 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:36,520 - pdf_extractor - INFO - Extraídos 16 archivos PDF del ZIP
+2025-10-09 09:46:37,292 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3325124.xlsx
+2025-10-09 09:46:37,295 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:37,319 - pdf_extractor - INFO - Extraídos 16 archivos PDF del ZIP
+2025-10-09 09:46:37,835 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:37] "GET /procesar-masivo/status/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 09:46:38,040 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3325132.xlsx
+2025-10-09 09:46:38,043 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:38,066 - pdf_extractor - INFO - Extraídos 16 archivos PDF del ZIP
+2025-10-09 09:46:38,874 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3328142.xlsx
+2025-10-09 09:46:38,877 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:38,891 - pdf_extractor - INFO - Extraídos 2 archivos PDF del ZIP
+2025-10-09 09:46:39,043 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3330977.xlsx
+2025-10-09 09:46:39,044 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:39,069 - pdf_extractor - INFO - Extraídos 19 archivos PDF del ZIP
+2025-10-09 09:46:39,844 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:39] "GET /procesar-masivo/status/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 09:46:40,004 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3330999.xlsx
+2025-10-09 09:46:40,007 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:40,035 - pdf_extractor - INFO - Extraídos 31 archivos PDF del ZIP
+2025-10-09 09:46:41,483 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3333373.xlsx
+2025-10-09 09:46:41,488 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:41,517 - pdf_extractor - INFO - Extraídos 25 archivos PDF del ZIP
+2025-10-09 09:46:41,859 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:41] "GET /procesar-masivo/status/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 09:46:42,714 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3333714.xlsx
+2025-10-09 09:46:42,719 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:42,745 - pdf_extractor - INFO - Extraídos 20 archivos PDF del ZIP
+2025-10-09 09:46:43,706 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3339412.xlsx
+2025-10-09 09:46:43,710 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 09:46:43,872 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:43] "GET /procesar-masivo/status/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 09:46:44,006 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\EXCEL\excel_con_resultados.zip
+2025-10-09 09:46:45,891 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:45] "GET /procesar-masivo/status/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 09:46:45,900 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 09:46:45] "GET /procesar-masivo/result/massive_1760021175610_qa3fnivqr HTTP/1.1" 200 -
+2025-10-09 13:42:27,227 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-10-09 13:42:27,227 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-09 13:42:27,228 - werkzeug - INFO -  * Restarting with stat
+2025-10-09 13:42:28,040 - werkzeug - WARNING -  * Debugger is active!
+2025-10-09 13:42:28,043 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-10-09 13:42:28,055 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:42:28] "[33mGET /estado-conexion HTTP/1.1[0m" 404 -
+2025-10-09 13:42:28,064 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:42:28] "[33mGET /estado-conexion HTTP/1.1[0m" 404 -
+2025-10-09 13:42:48,242 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:42:48] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-10-09 13:42:48,245 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:42:48] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-10-09 13:42:48,291 - pdf_extractor - INFO - Extraídos 25 archivos PDF del ZIP
+2025-10-09 13:42:49,559 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3277170.xlsx
+2025-10-09 13:42:49,564 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:42:49,595 - pdf_extractor - INFO - Extraídos 32 archivos PDF del ZIP
+2025-10-09 13:42:50,276 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:42:50] "GET /procesar-masivo/status/massive_1760035368239_0i8bafaxa HTTP/1.1" 200 -
+2025-10-09 13:42:51,076 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3277215.xlsx
+2025-10-09 13:42:51,081 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:42:51,105 - pdf_extractor - INFO - Extraídos 10 archivos PDF del ZIP
+2025-10-09 13:42:51,663 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3277374.xlsx
+2025-10-09 13:42:51,664 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:42:51,689 - pdf_extractor - INFO - Extraídos 24 archivos PDF del ZIP
+2025-10-09 13:42:52,278 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:42:52] "GET /procesar-masivo/status/massive_1760035368239_0i8bafaxa HTTP/1.1" 200 -
+2025-10-09 13:42:52,781 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3279718.xlsx
+2025-10-09 13:42:52,785 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:42:52,809 - pdf_extractor - INFO - Extraídos 21 archivos PDF del ZIP
+2025-10-09 13:42:53,806 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3288987.xlsx
+2025-10-09 13:42:53,809 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:42:53,839 - pdf_extractor - INFO - Extraídos 31 archivos PDF del ZIP
+2025-10-09 13:42:54,267 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:42:54] "GET /procesar-masivo/status/massive_1760035368239_0i8bafaxa HTTP/1.1" 200 -
+2025-10-09 13:42:55,262 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3299834.xlsx
+2025-10-09 13:42:55,267 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:42:55,294 - pdf_extractor - INFO - Extraídos 20 archivos PDF del ZIP
+2025-10-09 13:42:56,259 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3299851.xlsx
+2025-10-09 13:42:56,262 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:42:56,280 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:42:56] "GET /procesar-masivo/status/massive_1760035368239_0i8bafaxa HTTP/1.1" 200 -
+2025-10-09 13:42:56,293 - pdf_extractor - INFO - Extraídos 24 archivos PDF del ZIP
+2025-10-09 13:42:57,436 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3299879.xlsx
+2025-10-09 13:42:57,440 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:42:57,472 - pdf_extractor - INFO - Extraídos 24 archivos PDF del ZIP
+2025-10-09 13:42:58,289 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:42:58] "GET /procesar-masivo/status/massive_1760035368239_0i8bafaxa HTTP/1.1" 200 -
+2025-10-09 13:42:58,621 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3301886.xlsx
+2025-10-09 13:42:58,625 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:42:58,631 - pdf_extractor - INFO - Extraídos 11 archivos PDF del ZIP
+2025-10-09 13:42:59,172 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3302287.xlsx
+2025-10-09 13:42:59,174 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:42:59,185 - pdf_extractor - INFO - Extraídos 23 archivos PDF del ZIP
+2025-10-09 13:43:00,275 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3305598.xlsx
+2025-10-09 13:43:00,278 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:43:00,290 - pdf_extractor - INFO - Extraídos 25 archivos PDF del ZIP
+2025-10-09 13:43:00,295 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:43:00] "GET /procesar-masivo/status/massive_1760035368239_0i8bafaxa HTTP/1.1" 200 -
+2025-10-09 13:43:01,477 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3305634.xlsx
+2025-10-09 13:43:01,481 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:43:01,493 - pdf_extractor - INFO - Extraídos 26 archivos PDF del ZIP
+2025-10-09 13:43:02,335 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:43:02] "GET /procesar-masivo/status/massive_1760035368239_0i8bafaxa HTTP/1.1" 200 -
+2025-10-09 13:43:02,705 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3305635.xlsx
+2025-10-09 13:43:02,709 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:43:02,724 - pdf_extractor - INFO - Extraídos 29 archivos PDF del ZIP
+2025-10-09 13:43:04,070 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3317143.xlsx
+2025-10-09 13:43:04,075 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:43:04,086 - pdf_extractor - INFO - Extraídos 24 archivos PDF del ZIP
+2025-10-09 13:43:04,342 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:43:04] "GET /procesar-masivo/status/massive_1760035368239_0i8bafaxa HTTP/1.1" 200 -
+2025-10-09 13:43:05,217 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3328182.xlsx
+2025-10-09 13:43:05,221 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:43:05,232 - pdf_extractor - INFO - Extraídos 23 archivos PDF del ZIP
+2025-10-09 13:43:06,342 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3333782.xlsx
+2025-10-09 13:43:06,346 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:43:06,353 - pdf_extractor - INFO - Extraídos 12 archivos PDF del ZIP
+2025-10-09 13:43:06,356 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:43:06] "GET /procesar-masivo/status/massive_1760035368239_0i8bafaxa HTTP/1.1" 200 -
+2025-10-09 13:43:06,934 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3334102.xlsx
+2025-10-09 13:43:06,936 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:43:06,942 - pdf_extractor - INFO - Extraídos 12 archivos PDF del ZIP
+2025-10-09 13:43:07,566 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3337083.xlsx
+2025-10-09 13:43:07,568 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:43:07,582 - pdf_extractor - INFO - Extraídos 23 archivos PDF del ZIP
+2025-10-09 13:43:08,394 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:43:08] "GET /procesar-masivo/status/massive_1760035368239_0i8bafaxa HTTP/1.1" 200 -
+2025-10-09 13:43:08,637 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3337120.xlsx
+2025-10-09 13:43:08,641 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:43:08,651 - pdf_extractor - INFO - Extraídos 21 archivos PDF del ZIP
+2025-10-09 13:43:09,656 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3337136.xlsx
+2025-10-09 13:43:09,660 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:43:09,847 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\EXCEL\excel_con_resultados.zip
+2025-10-09 13:43:10,413 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:43:10] "GET /procesar-masivo/status/massive_1760035368239_0i8bafaxa HTTP/1.1" 200 -
+2025-10-09 13:43:10,424 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:43:10] "GET /procesar-masivo/result/massive_1760035368239_0i8bafaxa HTTP/1.1" 200 -
+2025-10-09 13:54:39,684 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-10-09 13:54:39,684 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-09 13:54:39,685 - werkzeug - INFO -  * Restarting with stat
+2025-10-09 13:54:40,512 - werkzeug - WARNING -  * Debugger is active!
+2025-10-09 13:54:40,515 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-10-09 13:55:06,464 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:55:06] "OPTIONS /procesar HTTP/1.1" 200 -
+2025-10-09 13:55:06,482 - pdf_extractor - INFO - Extraídos 19 archivos PDF del ZIP
+2025-10-09 13:55:07,492 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\plantilla_3328112 .xlsx
+2025-10-09 13:55:07,495 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-09 13:55:07,496 - werkzeug - INFO - 127.0.0.1 - - [09/Oct/2025 13:55:07] "POST /procesar HTTP/1.1" 200 -
+2025-10-17 13:49:56,156 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-10-17 13:49:56,156 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-17 13:49:56,157 - werkzeug - INFO -  * Restarting with stat
+2025-10-17 13:49:57,027 - werkzeug - WARNING -  * Debugger is active!
+2025-10-17 13:49:57,029 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-10-20 09:46:15,628 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-10-20 09:46:15,628 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-20 09:46:15,631 - werkzeug - INFO -  * Restarting with stat
+2025-10-20 09:46:16,535 - werkzeug - WARNING -  * Debugger is active!
+2025-10-20 09:46:16,538 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-10-20 10:42:50,713 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-10-20 10:42:50,713 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-20 10:42:50,714 - werkzeug - INFO -  * Restarting with stat
+2025-10-20 10:42:51,605 - werkzeug - WARNING -  * Debugger is active!
+2025-10-20 10:42:51,607 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-10-20 10:43:03,229 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 10:43:03] "[33mGET /estado-conexion HTTP/1.1[0m" 404 -
+2025-10-20 10:43:12,819 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 10:43:12] "OPTIONS /procesar HTTP/1.1" 200 -
+2025-10-20 10:43:12,838 - pdf_extractor - INFO - Extraídos 20 archivos PDF del ZIP
+2025-10-20 10:43:14,032 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\plantilla_3179515.xlsx
+2025-10-20 10:43:14,036 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 10:43:14,037 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 10:43:14] "POST /procesar HTTP/1.1" 200 -
+2025-10-20 11:59:22,070 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-10-20 11:59:22,070 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-20 11:59:22,071 - werkzeug - INFO -  * Restarting with stat
+2025-10-20 11:59:22,961 - werkzeug - WARNING -  * Debugger is active!
+2025-10-20 11:59:22,963 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-10-20 11:59:25,533 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 11:59:25] "[33mGET /estado-conexion HTTP/1.1[0m" 404 -
+2025-10-20 11:59:25,791 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 11:59:25] "[33mGET /estado-conexion HTTP/1.1[0m" 404 -
+2025-10-20 11:59:40,055 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 11:59:40] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-10-20 11:59:40,058 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 11:59:40] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-10-20 11:59:40,077 - pdf_extractor - INFO - Extraídos 20 archivos PDF del ZIP
+2025-10-20 11:59:41,132 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3179515.xlsx
+2025-10-20 11:59:41,136 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:41,147 - pdf_extractor - INFO - Extraídos 19 archivos PDF del ZIP
+2025-10-20 11:59:41,235 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 11:59:41] "[33mGET /estado-conexion HTTP/1.1[0m" 404 -
+2025-10-20 11:59:42,067 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 11:59:42] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 11:59:42,104 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3179548.xlsx
+2025-10-20 11:59:42,107 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:42,117 - pdf_extractor - INFO - Extraídos 18 archivos PDF del ZIP
+2025-10-20 11:59:42,985 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3190735.xlsx
+2025-10-20 11:59:42,988 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:42,998 - pdf_extractor - INFO - Extraídos 18 archivos PDF del ZIP
+2025-10-20 11:59:43,900 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3195186.xlsx
+2025-10-20 11:59:43,903 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:43,913 - pdf_extractor - INFO - Extraídos 20 archivos PDF del ZIP
+2025-10-20 11:59:44,085 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 11:59:44] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 11:59:44,899 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3196131.xlsx
+2025-10-20 11:59:44,902 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:44,912 - pdf_extractor - INFO - Extraídos 17 archivos PDF del ZIP
+2025-10-20 11:59:45,729 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3196135.xlsx
+2025-10-20 11:59:45,732 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:45,741 - pdf_extractor - INFO - Extraídos 15 archivos PDF del ZIP
+2025-10-20 11:59:46,136 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 11:59:46] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 11:59:46,513 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3196155.xlsx
+2025-10-20 11:59:46,516 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:46,530 - pdf_extractor - INFO - Extraídos 31 archivos PDF del ZIP
+2025-10-20 11:59:47,998 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3298622.xlsx
+2025-10-20 11:59:48,003 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:48,017 - pdf_extractor - INFO - Extraídos 26 archivos PDF del ZIP
+2025-10-20 11:59:48,151 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 11:59:48] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 11:59:49,253 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3317695.xlsx
+2025-10-20 11:59:49,257 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:49,268 - pdf_extractor - INFO - Extraídos 20 archivos PDF del ZIP
+2025-10-20 11:59:50,168 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 11:59:50] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 11:59:50,240 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3317697.xlsx
+2025-10-20 11:59:50,244 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:50,255 - pdf_extractor - INFO - Extraídos 22 archivos PDF del ZIP
+2025-10-20 11:59:51,305 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3317698.xlsx
+2025-10-20 11:59:51,308 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:51,322 - pdf_extractor - INFO - Extraídos 25 archivos PDF del ZIP
+2025-10-20 11:59:52,202 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 11:59:52] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 11:59:52,569 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3317702.xlsx
+2025-10-20 11:59:52,575 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:52,586 - pdf_extractor - INFO - Extraídos 23 archivos PDF del ZIP
+2025-10-20 11:59:53,735 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3325120.xlsx
+2025-10-20 11:59:53,739 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:53,754 - pdf_extractor - INFO - Extraídos 28 archivos PDF del ZIP
+2025-10-20 11:59:54,223 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 11:59:54] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 11:59:55,191 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3325121.xlsx
+2025-10-20 11:59:55,196 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:55,210 - pdf_extractor - INFO - Extraídos 24 archivos PDF del ZIP
+2025-10-20 11:59:56,254 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 11:59:56] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 11:59:56,421 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3325130.xlsx
+2025-10-20 11:59:56,427 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:56,444 - pdf_extractor - INFO - Extraídos 29 archivos PDF del ZIP
+2025-10-20 11:59:56,567 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 11:59:56] "[33mGET /estado-conexion HTTP/1.1[0m" 404 -
+2025-10-20 11:59:58,162 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3325139.xlsx
+2025-10-20 11:59:58,168 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:58,182 - pdf_extractor - INFO - Extraídos 20 archivos PDF del ZIP
+2025-10-20 11:59:58,276 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 11:59:58] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 11:59:59,697 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3325140.xlsx
+2025-10-20 11:59:59,702 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 11:59:59,720 - pdf_extractor - INFO - Extraídos 24 archivos PDF del ZIP
+2025-10-20 12:00:00,290 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 12:00:00] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 12:00:01,099 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3325141.xlsx
+2025-10-20 12:00:01,104 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 12:00:01,130 - pdf_extractor - INFO - Extraídos 35 archivos PDF del ZIP
+2025-10-20 12:00:02,314 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 12:00:02] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 12:00:03,065 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3325142.xlsx
+2025-10-20 12:00:03,072 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 12:00:03,074 - pdf_extractor - INFO - Extraídos 2 archivos PDF del ZIP
+2025-10-20 12:00:03,236 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3328908.xlsx
+2025-10-20 12:00:03,237 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 12:00:03,252 - pdf_extractor - INFO - Extraídos 24 archivos PDF del ZIP
+2025-10-20 12:00:04,333 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 12:00:04] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 12:00:04,486 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3330689.xlsx
+2025-10-20 12:00:04,490 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 12:00:04,511 - pdf_extractor - INFO - Extraídos 21 archivos PDF del ZIP
+2025-10-20 12:00:05,625 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3331102.xlsx
+2025-10-20 12:00:05,630 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 12:00:05,648 - pdf_extractor - INFO - Extraídos 36 archivos PDF del ZIP
+2025-10-20 12:00:06,348 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 12:00:06] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 12:00:07,379 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3331120.xlsx
+2025-10-20 12:00:07,387 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 12:00:07,405 - pdf_extractor - INFO - Extraídos 33 archivos PDF del ZIP
+2025-10-20 12:00:08,366 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 12:00:08] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 12:00:08,966 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3333707.xlsx
+2025-10-20 12:00:08,972 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 12:00:08,991 - pdf_extractor - INFO - Extraídos 35 archivos PDF del ZIP
+2025-10-20 12:00:10,346 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 12:00:10] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 12:00:10,628 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3333708.xlsx
+2025-10-20 12:00:10,634 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 12:00:10,636 - pdf_extractor - INFO - Extraídos 2 archivos PDF del ZIP
+2025-10-20 12:00:10,818 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3333784.xlsx
+2025-10-20 12:00:10,819 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 12:00:10,828 - pdf_extractor - INFO - Extraídos 17 archivos PDF del ZIP
+2025-10-20 12:00:11,228 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 12:00:11] "[33mGET /estado-conexion HTTP/1.1[0m" 404 -
+2025-10-20 12:00:11,641 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3334441.xlsx
+2025-10-20 12:00:11,645 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 12:00:11,652 - pdf_extractor - INFO - Extraídos 12 archivos PDF del ZIP
+2025-10-20 12:00:12,295 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3334487.xlsx
+2025-10-20 12:00:12,298 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 12:00:12,303 - pdf_extractor - INFO - Extraídos 10 archivos PDF del ZIP
+2025-10-20 12:00:12,355 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 12:00:12] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 12:00:12,820 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3335033.xlsx
+2025-10-20 12:00:12,822 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 12:00:12,837 - pdf_extractor - INFO - Extraídos 32 archivos PDF del ZIP
+2025-10-20 12:00:14,361 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 12:00:14] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 12:00:14,423 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3338260.xlsx
+2025-10-20 12:00:14,429 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 12:00:14,433 - pdf_extractor - INFO - Extraídos 6 archivos PDF del ZIP
+2025-10-20 12:00:14,764 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3353398.xlsx
+2025-10-20 12:00:14,765 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-20 12:00:15,080 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\EXCEL\excel_con_resultados.zip
+2025-10-20 12:00:16,374 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 12:00:16] "GET /procesar-masivo/status/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 12:00:16,378 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 12:00:16] "GET /procesar-masivo/result/massive_1760979580051_qwfzpdkzd HTTP/1.1" 200 -
+2025-10-20 12:00:26,540 - werkzeug - INFO - 127.0.0.1 - - [20/Oct/2025 12:00:26] "[33mGET /estado-conexion HTTP/1.1[0m" 404 -
+2025-10-22 09:29:01,741 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-10-22 09:29:01,742 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-22 09:29:01,743 - werkzeug - INFO -  * Restarting with stat
+2025-10-22 09:29:02,580 - werkzeug - WARNING -  * Debugger is active!
+2025-10-22 09:29:02,582 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-10-22 09:29:17,065 - werkzeug - INFO - 127.0.0.1 - - [22/Oct/2025 09:29:17] "OPTIONS /procesar-masivo HTTP/1.1" 200 -
+2025-10-22 09:29:17,069 - werkzeug - INFO - 127.0.0.1 - - [22/Oct/2025 09:29:17] "POST /procesar-masivo HTTP/1.1" 200 -
+2025-10-22 09:29:17,090 - pdf_extractor - INFO - Extraídos 27 archivos PDF del ZIP
+2025-10-22 09:29:18,462 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3324483.xlsx
+2025-10-22 09:29:18,467 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-22 09:29:18,475 - pdf_extractor - INFO - Extraídos 14 archivos PDF del ZIP
+2025-10-22 09:29:19,087 - werkzeug - INFO - 127.0.0.1 - - [22/Oct/2025 09:29:19] "GET /procesar-masivo/status/massive_1761143357062_us4ujvcym HTTP/1.1" 200 -
+2025-10-22 09:29:19,201 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3331108.xlsx
+2025-10-22 09:29:19,203 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-22 09:29:19,211 - pdf_extractor - INFO - Extraídos 16 archivos PDF del ZIP
+2025-10-22 09:29:19,964 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3331116.xlsx
+2025-10-22 09:29:19,966 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-22 09:29:19,972 - pdf_extractor - INFO - Extraídos 11 archivos PDF del ZIP
+2025-10-22 09:29:20,565 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3338072.xlsx
+2025-10-22 09:29:20,567 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-22 09:29:20,573 - pdf_extractor - INFO - Extraídos 8 archivos PDF del ZIP
+2025-10-22 09:29:20,988 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3338083.xlsx
+2025-10-22 09:29:20,990 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-22 09:29:21,006 - pdf_extractor - INFO - Extraídos 34 archivos PDF del ZIP
+2025-10-22 09:29:21,093 - werkzeug - INFO - 127.0.0.1 - - [22/Oct/2025 09:29:21] "GET /procesar-masivo/status/massive_1761143357062_us4ujvcym HTTP/1.1" 200 -
+2025-10-22 09:29:22,585 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3341493.xlsx
+2025-10-22 09:29:22,591 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-22 09:29:22,604 - pdf_extractor - INFO - Extraídos 23 archivos PDF del ZIP
+2025-10-22 09:29:23,121 - werkzeug - INFO - 127.0.0.1 - - [22/Oct/2025 09:29:23] "GET /procesar-masivo/status/massive_1761143357062_us4ujvcym HTTP/1.1" 200 -
+2025-10-22 09:29:23,712 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3342538.xlsx
+2025-10-22 09:29:23,716 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-22 09:29:23,732 - pdf_extractor - INFO - Extraídos 34 archivos PDF del ZIP
+2025-10-22 09:29:25,286 - werkzeug - INFO - 127.0.0.1 - - [22/Oct/2025 09:29:25] "GET /procesar-masivo/status/massive_1761143357062_us4ujvcym HTTP/1.1" 200 -
+2025-10-22 09:29:25,310 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3342567.xlsx
+2025-10-22 09:29:25,316 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-22 09:29:25,333 - pdf_extractor - INFO - Extraídos 35 archivos PDF del ZIP
+2025-10-22 09:29:27,008 - pdf_extractor - INFO - Datos exportados exitosamente a: C:\Users\yacardenas\Downloads\resultados_temporales\plantilla_3352187.xlsx
+2025-10-22 09:29:27,015 - pdf_extractor - INFO - Archivos temporales limpiados
+2025-10-22 09:29:27,099 - pdf_extractor - INFO - ZIP creado exitosamente: C:\Users\yacardenas\Downloads\EXCEL\excel_con_resultados.zip
+2025-10-22 09:29:27,291 - werkzeug - INFO - 127.0.0.1 - - [22/Oct/2025 09:29:27] "GET /procesar-masivo/status/massive_1761143357062_us4ujvcym HTTP/1.1" 200 -
+2025-10-22 09:29:27,296 - werkzeug - INFO - 127.0.0.1 - - [22/Oct/2025 09:29:27] "GET /procesar-masivo/result/massive_1761143357062_us4ujvcym HTTP/1.1" 200 -
+2025-10-23 14:00:46,500 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-10-23 14:00:46,501 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-23 14:00:46,502 - werkzeug - INFO -  * Restarting with stat
+2025-10-23 14:00:47,366 - werkzeug - WARNING -  * Debugger is active!
+2025-10-23 14:00:47,369 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-10-23 14:00:47,381 - werkzeug - INFO - 127.0.0.1 - - [23/Oct/2025 14:00:47] "[33mGET /estado-conexion HTTP/1.1[0m" 404 -
+2025-10-23 14:00:59,795 - werkzeug - INFO - 127.0.0.1 - - [23/Oct/2025 14:00:59] "[33mGET /estado-conexion HTTP/1.1[0m" 404 -
+2025-10-23 14:01:15,099 - werkzeug - INFO - 127.0.0.1 - - [23/Oct/2025 14:01:15] "[33mGET /estado-conexion HTTP/1.1[0m" 404 -
+2025-10-23 14:24:20,950 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-10-23 14:24:20,951 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-10-23 14:24:20,952 - werkzeug - INFO -  * Restarting with stat
+2025-10-23 14:24:21,754 - werkzeug - WARNING -  * Debugger is active!
+2025-10-23 14:24:21,757 - werkzeug - INFO -  * Debugger PIN: 523-577-626
+2025-10-23 14:24:23,842 - werkzeug - INFO - 127.0.0.1 - - [23/Oct/2025 14:24:23] "[33mGET /estado-conexion HTTP/1.1[0m" 404 -

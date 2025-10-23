@@ -321,3 +321,24 @@ html, body {
 .btn-processing:hover {
   background: #9ca3af !important;
 }
+
+/* ===== Animación simple para íconos ===== */
+.clickable-icon {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clickable-icon:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+.green-card .clickable-icon:hover {
+  color: #15803d;
+  text-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+}
+
+.purple-card .clickable-icon:hover {
+  color: #7c3aed;
+  text-shadow: 0 0 8px rgba(167, 139, 250, 0.4);
+}
